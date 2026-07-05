@@ -11,8 +11,9 @@ import { ToastModule } from 'primeng/toast';
 import { EmployeeService } from '../../services/employee-service';
 import { Employee, EmployeeResponse } from '../../../../core/models/employee.model';
 import { TagModule } from 'primeng/tag';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { finalize } from 'rxjs';
+import { URL_ROUTES } from '../../../../core/constants/url.constant';
 
 @Component({
   selector: 'app-view-employee',
@@ -35,6 +36,7 @@ export class ViewEmployeeComponent implements OnInit {
   private readonly messageService = inject(MessageService);
   private readonly employeeService = inject(EmployeeService);
   private readonly activatedRoute = inject(ActivatedRoute);
+  private readonly router = inject(Router);
 
   employeeId: string = '';
   employeeDetails!: Employee;
@@ -45,13 +47,17 @@ export class ViewEmployeeComponent implements OnInit {
     this.getEmployeeDetails();
   }
 
+  redirectTo() {
+    this.router.navigate([URL_ROUTES.EMPLOYEE.EDIT, this.employeeId]);
+  }
+
   getEmployeeDetails() {
     this.employeeService
       .getEmployeeDetailsService(this.employeeId)
       .pipe(
         finalize(() => {
           this.isEmployeeDetailsRetrived.set(true);
-        })
+        }),
       )
       .subscribe({
         next: (res: EmployeeResponse) => {

@@ -32,13 +32,12 @@ import {
   DesignationListResponse,
   DesignationResponse,
 } from '../../../../core/models/designation.model';
-import { EmployeeService } from '../../services/employee-service';
 import { InputFieldComponent } from '../../../../shared/components/input-field/input-field';
 import { CardModule } from 'primeng/card';
-
+import { EmployeeService } from '../../../employees/services/employee-service';
 
 @Component({
-  selector: 'app-employee-form',
+  selector: 'app-update-profile',
   imports: [
     CommonModule,
     FormsModule,
@@ -52,10 +51,10 @@ import { CardModule } from 'primeng/card';
     CardModule,
     InputFieldComponent,
   ],
-  templateUrl: './employee-form.html',
+  templateUrl: './update-profile.html',
   styles: ``,
 })
-export class EmployeeFormComponent implements OnInit {
+export class UpdateProfileComponent {
   @Input() formType: string = '';
   @Input() employeeId: string = '';
   @Output() callEmployeeDetailsFailed = new EventEmitter();
@@ -66,12 +65,27 @@ export class EmployeeFormComponent implements OnInit {
   private readonly formBuilder = inject(FormBuilder);
 
   pageFormFroup = this.formBuilder.nonNullable.group({
-    joiningDate: ['', Validators.required],
+    firstName: ['', Validators.required],
+    lastName: ['', Validators.required],
+    gender: ['', Validators.required],
+    dob: ['', Validators.required],
+    bloodGroup: ['', Validators.required],
+    materialStatus: ['', Validators.required],
+    nationality: ['Indian', Validators.required],
     email: ['', Validators.required],
+    mobile: ['', Validators.required],
+    alternateMobile: ['', Validators.required],
+    addressLine1: ['', Validators.required],
+    addressLine2: ['', Validators.required],
+    city: ['', Validators.required],
+    state: ['', Validators.required],
+    country: ['', Validators.required],
+    pincode: ['', Validators.required],
     department: ['', Validators.required],
     designation: ['', Validators.required],
     reportingManager: ['', Validators.required],
     employmentType: ['', Validators.required],
+    joiningDate: ['', Validators.required],
     workLocation: ['', Validators.required],
     role: ['', Validators.required],
     status: ['', Validators.required],
@@ -80,32 +94,91 @@ export class EmployeeFormComponent implements OnInit {
   isFormSubmitted = signal(false);
   isLoading = signal(false);
 
-  rolesList: RoleResponse[] = [];
-  departmentsList: DepartmentResponse[] = [];
-  designationsList: DesignationResponse[] = [];
+  employeeRoles: RoleResponse[] = [];
+  employeeDepartments: DepartmentResponse[] = [];
+  employeeDesignations: DesignationResponse[] = [];
   employeeDetails!: Employee;
 
   readonly fieldlabels: Record<string, string> = {
-    joiningDate: 'Joining Date',
+    firstName: 'First Name',
+    lastName: 'Last Name',
+    gender: 'Gender',
+    dob: 'Date of Birth',
+    bloodGroup: 'Blood Group',
+    materialStatus: 'Material Status',
+    nationality: 'Nationality',
     email: 'Email',
+    mobile: 'Mobile',
+    alternateMobile: 'Alternate Mobile',
+    addressLine1: 'Address Line 1',
+    addressLine2: 'Address Line 2',
+    city: 'City',
+    state: 'State',
+    country: 'Country',
+    pincode: 'Pincode',
     department: 'Department',
     designation: 'Designation',
     reportingManager: 'Reporting Manager',
     employmentType: 'Employment Type',
+    joiningDate: 'Joining Date',
     workLocation: 'Work Location',
     role: 'Role',
     status: 'Status',
   };
 
+  genderList = [
+    { name: 'Male', key: 'M' },
+    { name: 'Female', key: 'F' },
+    { name: 'Others', key: 'O' },
+  ];
+
+  bloodGroupList = [
+    { name: 'A+ (A positive) ', key: 'A+' },
+    { name: 'A- (A negative) ', key: 'A-' },
+    { name: 'B+ (B positive) ', key: 'B+' },
+    { name: 'B- (B negative) ', key: 'B-' },
+    { name: 'AB+ (AB positive) ', key: 'AB+' },
+    { name: 'AB- (AB negative) ', key: 'AB-' },
+    { name: 'O+ (O positive) ', key: 'O+' },
+    { name: 'O- (O negative) ', key: 'O-' },
+  ];
+
+  materialStatusList = [
+    { name: 'Single / Never Married', key: 'single' },
+    { name: 'Married', key: 'married' },
+    { name: 'Separated', key: 'separated' },
+    { name: 'Divorced', key: 'divorced' },
+    { name: 'Widowed', key: 'widowed' },
+    { name: 'Common-Law / Cohabiting', key: 'cohabiting' },
+  ];
+
+  departmentList = [
+    { name: 'Software', key: 'M' },
+    { name: 'Finance', key: 'F' },
+    { name: 'HR', key: 'O' },
+  ];
+
+  designationList = [
+    { name: 'Software Developer', key: 'M' },
+    { name: 'Finance Analyst', key: 'F' },
+    { name: 'Recruiter', key: 'O' },
+  ];
+
   employmentTypeList = [
-    { label: 'Full Time', value: 'fullTime' },
-    { label: 'Part Time', value: 'partTime' },
-    { label: 'Contract', value: 'contract' },
+    { name: 'Full Time', key: 'fullTime' },
+    { name: 'Part Time', key: 'partTime' },
+    { name: 'Contract', key: 'contract' },
+  ];
+
+  roleList = [
+    { name: 'Admin', key: 'admin' },
+    { name: 'Manager', key: 'manager' },
+    { name: 'Employee', key: 'employee' },
   ];
 
   statusList = [
-    { label: 'Active', value: 'active' },
-    { label: 'Inactive', value: 'inactive' },
+    { name: 'Active', key: 'active' },
+    { name: 'Inactive', key: 'inactive' },
   ];
 
   ngOnInit(): void {
@@ -121,7 +194,7 @@ export class EmployeeFormComponent implements OnInit {
   getAllRoles() {
     this.commonService.getAllRolesService().subscribe({
       next: (res: RoleListResponse) => {
-        this.rolesList = res.data;
+        this.employeeRoles = res.data;
         this.messageService.add({
           severity: 'success',
           summary: 'Success',
@@ -142,7 +215,7 @@ export class EmployeeFormComponent implements OnInit {
   getAllDepartments() {
     this.commonService.getAllDepartmentService().subscribe({
       next: (res: DepartmentListResponse) => {
-        this.departmentsList = res.data;
+        this.employeeDepartments = res.data;
         this.messageService.add({
           severity: 'success',
           summary: 'Success',
@@ -163,7 +236,7 @@ export class EmployeeFormComponent implements OnInit {
   getAllDesignations() {
     this.commonService.getAllDesignationService().subscribe({
       next: (res: DesignationListResponse) => {
-        this.designationsList = res.data;
+        this.employeeDesignations = res.data;
         this.messageService.add({
           severity: 'success',
           summary: 'Success',

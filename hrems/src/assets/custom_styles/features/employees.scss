@@ -1,11 +1,6 @@
 .layout-employees {
 
-    .table-filter-setup {
-        display: flex;
-        align-items: center;
-        justify-content: space-between;
-    }
-
+    // Card title
     .p-card {
         .p-card-body {
             .p-card-title {
@@ -27,8 +22,11 @@
         }
     }
 
-    .layout-input-field {
-        margin: 1rem 0px 0.5rem 0;
+    // Employee List View
+    .table-filter-setup {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
     }
 
     .p-datatable {
@@ -48,7 +46,6 @@
             height: calc(100vh - 38vh);
 
         }
-
     }
 
     .p-menu {
@@ -60,4 +57,73 @@
             min-width: 7rem !important;
         }
     }
+
+
+    // View Employee
+    .employee-details-view {
+        .employee-view-left {
+
+            .employee-profile-id-card {
+                display: flex;
+                justify-content: center;
+
+                img {
+                    width: 375px;
+                    height: auto;
+                }
+            }
+
+            .profile-default-photo {
+                width: 180px;
+                height: auto;
+            }
+
+            .profile-text {
+                margin-bottom: 1rem;
+            }
+
+            .circle {
+                display: inline-block;
+                border-radius: 50px;
+                width: 15px;
+                height: 15px;
+
+                &.circle-active {
+                    background: green;
+                }
+
+                &.circle-inactive {
+                    background: red;
+                }
+            }
+        }
+
+        .employee-view-right {
+            overflow: auto;
+            max-height: calc(-20rem + 100vh);
+
+            .profile-text {
+                margin-bottom: 1rem;
+            }
+        }
+    }
+
+    // Employee ADD / EDIT
+    .employee-profile-container {
+        .layout-input-field {
+            margin: 1rem 0px 0.5rem 0;
+        }
+
+        .employee-profile-id-card {
+            display: flex;
+            justify-content: center;
+
+            img {
+                width: 80%;
+                height: auto;
+            }
+        }
+
+    }
+
 }

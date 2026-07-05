@@ -7,33 +7,32 @@
     <h1 class="auth-subtitle">A Complete HR Employee Management System</h1>
   </div>
   <div class="auth-body">
-    <div class="layout-input-field">
-      <app-input-field
-        [enableIcon]="true"
-        [enableInputText]="true"
-        [controlName]="loginFormGroup.controls.email"
-        [formcontrolName]="'email'"
-        inputIcon="pi pi-user"
-        inputType="email"
-        labelName="Email"
-        [fieldlabels]="fieldlabels"
-      ></app-input-field>
-    </div>
-    <div class="layout-input-field">
-      <app-input-field
-        [enableIcon]="true"
-        [enableInputText]="true"
-        [controlName]="loginFormGroup.controls.password"
-        [formcontrolName]="'password'"
-        inputIcon="pi pi-eye"
-        inputType="password"
-        labelName="Password"
-        [fieldlabels]="fieldlabels"
-      ></app-input-field>
-    </div>
+    <app-input-field
+      [enableIcon]="true"
+      [inputTextField]="true"
+      [controlName]="loginFormGroup.controls.email"
+      [formcontrolName]="'email'"
+      inputIcon="pi pi-user"
+      inputType="email"
+      labelName="Email"
+      [fieldlabels]="fieldlabels"
+    ></app-input-field>
+
+    <app-input-field
+      [enableIcon]="true"
+      [inputTextField]="true"
+      [controlName]="loginFormGroup.controls.password"
+      [formcontrolName]="'password'"
+      inputIcon="pi pi-eye"
+      inputType="password"
+      labelName="Password"
+      [fieldlabels]="fieldlabels"
+    ></app-input-field>
+
     <p class="info-text">
       Forgot your password? <a class="cursor-pointer" (click)="redirect()">Click here </a>
     </p>
+    
   </div>
   <div class="auth-footer">
     <button
