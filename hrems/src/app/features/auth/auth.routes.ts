@@ -2,7 +2,7 @@ import { Routes } from "@angular/router";
 
 import { LoginComponent } from "./pages/login/login";
 import { ForgotPasswordComponent } from "./pages/forgot-password/forgot-password";
-import { URL_ROUTES } from "../../core/constants/ulrs.constant";
+import { URL_ROUTES } from "../../core/constants/url.constant";
 
 export const AUTH_ROUTES: Routes = [
     {

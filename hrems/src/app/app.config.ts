@@ -4,6 +4,7 @@ import { PreloadAllModules, provideRouter, withPreloading } from '@angular/route
 import { routes } from './app.routes';
 import { providePrimeNG } from 'primeng/config';
 import Aura from '@primeuix/themes/aura';
+import { MessageService } from 'primeng/api';
 
 export const appConfig: ApplicationConfig = {
   providers: [
@@ -15,5 +16,6 @@ export const appConfig: ApplicationConfig = {
       },
     }),
     { provide: LOCALE_ID, useValue: 'en-IN' },
+    MessageService
   ],
 };
