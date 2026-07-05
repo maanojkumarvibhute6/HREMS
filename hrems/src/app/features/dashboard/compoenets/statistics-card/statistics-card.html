@@ -1,0 +1,39 @@
+<p-card>
+  <ng-template #title>
+    <i class="pi" [ngClass]="cardIcon"></i>
+    {{ cardTitle }}
+  </ng-template>
+  <h2>{{ totalCount }}</h2>
+  <ng-template #footer>
+    @if (cardTitle === commonConstants.DASHBOARD.TOTAL_DEPARTMENTS) {
+      <h6>Total {{ newDepartmentsAdded }} new departments added in this Month.</h6>
+    }
+    @if (cardTitle === commonConstants.DASHBOARD.TOTAL_DESIGNATIONS) {
+      <h6>Total {{ newDesignationsAdded }} new designations added in this Month.</h6>
+    }
+    @if (cardTitle === commonConstants.DASHBOARD.TOTAL_EMPLOYEES_ON_LEAVES) {
+      <h6>Total {{ totalEmployeesLeave }} on leave today.</h6>
+    }
+    @if (cardTitle === commonConstants.DASHBOARD.TOTAL_EMPLOYEES_ATTENDENCES) {
+      <h6>Total {{ totalEmployeesAttendences }} attended to office.</h6>
+    }
+    @if (cardTitle === commonConstants.DASHBOARD.TOTAL_EMPLOYESS) {
+      <h6>Total {{ newEmployeesAdded }} new employees added in this Month.</h6>
+    }
+    @if (cardTitle === commonConstants.DASHBOARD.TOTAL_ADMINS) {
+      <h6>Total {{ newEmployeesAdded }} new employees added in this Month.</h6>
+    }
+    @if (cardTitle === commonConstants.DASHBOARD.TOTAL_MANAGERS) {
+      <h6>Total {{ newEmployeesAdded }} new employees added in this Month.</h6>
+    }
+    @if (cardTitle === commonConstants.DASHBOARD.TOTAL_OTHER_EMPLOYEES) {
+      <h6>Total {{ newEmployeesAdded }} new employees added in this Month.</h6>
+    }
+    @if (cardTitle === commonConstants.DASHBOARD.TOTAL_ACTIVE_EMPLOYEES) {
+      <h6>Total {{ totalCount }} employees are working in orgination.</h6>
+    }
+    @if (cardTitle === commonConstants.DASHBOARD.TOTAL_INACTIVE_EMPLOYEES) {
+      <h6>Total {{ totalCount }} employees are not working in orgination.</h6>
+    }
+  </ng-template>
+</p-card>

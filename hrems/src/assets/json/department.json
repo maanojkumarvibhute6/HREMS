@@ -1,0 +1,107 @@
+{
+    "status": {
+        "status": "Success",
+        "statusCode": 200,
+        "message": "Department list retrived successfully"
+    },
+    "data": [
+        {
+            "departmentCode": "DEP1",
+            "departmentName": "software",
+            "description": "Software description",
+            "departmentHead": "department Head",
+            "isActive": true,
+            "status": "Active"
+        },
+        {
+            "departmentCode": "DEP2",
+            "departmentName": "software",
+            "description": "Software description",
+            "departmentHead": "department Head",
+            "isActive": true,
+            "status": "Active"
+        },
+        {
+            "departmentCode": "DEP3",
+            "departmentName": "software",
+            "description": "Software description",
+            "departmentHead": "department Head",
+            "isActive": true,
+            "status": "Active"
+        },
+        {
+            "departmentCode": "DEP4",
+            "departmentName": "software",
+            "description": "Software description",
+            "departmentHead": "department Head",
+            "isActive": true,
+            "status": "Active"
+        },
+        {
+            "departmentCode": "DEP5",
+            "departmentName": "software",
+            "description": "Software description",
+            "departmentHead": "department Head",
+            "isActive": true,
+            "status": "Active"
+        },
+        {
+            "departmentCode": "DEP6",
+            "departmentName": "software",
+            "description": "Software description",
+            "departmentHead": "department Head",
+            "isActive": false,
+            "status": "Inactive"
+        },
+        {
+            "departmentCode": "DEP7",
+            "departmentName": "software",
+            "description": "Software description",
+            "departmentHead": "department Head",
+            "isActive": false,
+            "status": "Inactive"
+        },
+        {
+            "departmentCode": "DEP8",
+            "departmentName": "software",
+            "description": "Software description",
+            "departmentHead": "department Head",
+            "isActive": true,
+            "status": "Active"
+        },
+        {
+            "departmentCode": "DEP9",
+            "departmentName": "software",
+            "description": "Software description",
+            "departmentHead": "department Head",
+            "isActive": true,
+            "status": "Active"
+        },
+        {
+            "departmentCode": "DEP10",
+            "departmentName": "software",
+            "description": "Software description",
+            "departmentHead": "department Head",
+            "isActive": true,
+            "status": "Active"
+        },
+        {
+            "departmentCode": "DEP11",
+            "departmentName": "software",
+            "description": "Software description",
+            "departmentHead": "department Head",
+            "isActive": true,
+            "status": "Active"
+        },
+        {
+            "departmentCode": "DEP12",
+            "departmentName": "software",
+            "description": "Software description",
+            "departmentHead": "department Head",
+            "isActive": true,
+            "status": "Active"
+        }
+        
+    ],
+    "length": 1
+}

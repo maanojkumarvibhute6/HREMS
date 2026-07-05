@@ -1,0 +1,19 @@
+<div class="layout-departments">
+  <p-card>
+    <ng-template #title>
+      <i class="pi pi-user"></i>
+      <div class="page-info">
+        <h3 class="page-title">Add Department</h3>
+        <span class="page-subtitle">Create a new department for your organization.</span>
+      </div>
+      
+    </ng-template>
+
+    <app-department-form
+      [formType]="'add'"
+    ></app-department-form>
+
+  </p-card>
+</div>
+
+<p-toast />

@@ -1,0 +1,22 @@
+import { ComponentFixture, TestBed } from '@angular/core/testing';
+
+import { AddDesignationComponent } from './add-designation';
+
+describe('AddDesignationComponent', () => {
+  let component: AddDesignationComponent;
+  let fixture: ComponentFixture<AddDesignationComponent>;
+
+  beforeEach(async () => {
+    await TestBed.configureTestingModule({
+      imports: [AddDesignationComponent],
+    }).compileComponents();
+
+    fixture = TestBed.createComponent(AddDesignationComponent);
+    component = fixture.componentInstance;
+    await fixture.whenStable();
+  });
+
+  it('should create', () => {
+    expect(component).toBeTruthy();
+  });
+});

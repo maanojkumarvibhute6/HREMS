@@ -1,0 +1,134 @@
+<div class="layout-dashboard">
+  <div class="dashboard-welcome-card">
+    <p-card>
+      <ng-template #title>Hello, {{ currentUserName }}</ng-template>
+      <div class="card-media-object"></div>
+      <ng-template #footer>
+        <span>Today is {{ currentDate | date: 'fullDate' }}</span>
+      </ng-template>
+    </p-card>
+  </div>
+
+  <div class="statistics-cards">
+    <h3 class="mb-3">Employees Statistics</h3>
+
+    <div class="row">
+      <!-- Departments -->
+      <div class="col-sm-12 col-md-3">
+        <div class="dashboard-info">
+          <app-statistics-card
+            [cardTitle]="commonConstants.DASHBOARD.TOTAL_DEPARTMENTS"
+            [cardIcon]="'pi-sitemap'"
+            [totalCount]="0"
+            [newDepartmentsAdded]="0"
+          ></app-statistics-card>
+        </div>
+      </div>
+
+      <!-- Designamtion -->
+      <div class="col-sm-12 col-md-3">
+        <div class="dashboard-info">
+          <app-statistics-card
+            [cardTitle]="commonConstants.DASHBOARD.TOTAL_DESIGNATIONS"
+            [cardIcon]="'pi-sitemap'"
+            [totalCount]="0"
+            [newDesignationsAdded]="0"
+          ></app-statistics-card>
+        </div>
+      </div>
+
+      <!-- Employees on Leave -->
+      <div class="col-sm-12 col-md-3">
+        <div class="dashboard-info">
+          <app-statistics-card
+            [cardTitle]="commonConstants.DASHBOARD.TOTAL_EMPLOYEES_ON_LEAVES"
+            [cardIcon]="'pi-sign-out'"
+            [totalCount]="0"
+            [totalEmployeesLeave]="0"
+          ></app-statistics-card>
+        </div>
+      </div>
+
+      <!-- Employees Attendence -->
+      <div class="col-sm-12 col-md-3">
+        <div class="dashboard-info">
+          <app-statistics-card
+            [cardTitle]="commonConstants.DASHBOARD.TOTAL_EMPLOYEES_ATTENDENCES"
+            [cardIcon]="'pi-sign-in'"
+            [totalCount]="0"
+            [totalEmployeesAttendences]="0"
+          ></app-statistics-card>
+        </div>
+      </div>
+    </div>
+
+    <div class="row">
+      <!-- Total Employees -->
+      <div class="col-sm-12 col-md-2">
+        <div class="dashboard-info">
+          <app-statistics-card
+            [cardTitle]="commonConstants.DASHBOARD.TOTAL_EMPLOYESS"
+            [cardIcon]="'pi-users'"
+            [totalCount]="totalEmployeesCount"
+            [newEmployeesAdded]="0"
+          ></app-statistics-card>
+        </div>
+      </div>
+
+      <!-- Admin Employees -->
+      <div class="col-ms-12 col-md-2">
+        <div class="dashboard-info">
+          <app-statistics-card
+            [cardTitle]="commonConstants.DASHBOARD.TOTAL_ADMINS"
+            [cardIcon]="'pi pi-users'"
+            [totalCount]="totalAdminRoleCount"
+          ></app-statistics-card>
+        </div>
+      </div>
+
+      <!-- Manager Employees -->
+      <div class="col-ms-12 col-md-2">
+        <div class="dashboard-info">
+          <app-statistics-card
+            [cardTitle]="commonConstants.DASHBOARD.TOTAL_MANAGERS"
+            [cardIcon]="'pi pi-users'"
+            [totalCount]="totalManagerRoleCount"
+          ></app-statistics-card>
+        </div>
+      </div>
+
+      <!-- Only Employees -->
+      <div class="col-ms-12 col-md-2">
+        <div class="dashboard-info">
+          <app-statistics-card
+            [cardTitle]="commonConstants.DASHBOARD.TOTAL_OTHER_EMPLOYEES"
+            [cardIcon]="'pi pi-users'"
+            [totalCount]="totalEmployeeRoleCount"
+          ></app-statistics-card>
+        </div>
+      </div>
+
+      <!-- Active Employees -->
+      <div class="col-ms-12 col-md-2">
+        <div class="dashboard-info">
+          <app-statistics-card
+            [cardTitle]="commonConstants.DASHBOARD.TOTAL_ACTIVE_EMPLOYEES"
+            [cardIcon]="'pi pi-users'"
+            [totalCount]="totalActiveEmployeesCount"
+          ></app-statistics-card>
+        </div>
+      </div>
+
+      <!-- Inactive Employees -->
+      <div class="col-ms-12 col-md-2">
+        <div class="dashboard-info">
+          <app-statistics-card
+            [cardTitle]="commonConstants.DASHBOARD.TOTAL_INACTIVE_EMPLOYEES"
+            [cardIcon]="'pi pi-users'"
+            [totalCount]="totalInactiveEmployeesCount"
+          ></app-statistics-card>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

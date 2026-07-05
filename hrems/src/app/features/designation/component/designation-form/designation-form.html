@@ -1,0 +1,110 @@
+  <form [formGroup]="pageFormFroup" (ngSubmit)="onFormSubmit()">
+    <div class="row">
+      <div class="layout-input-field col-sm-6">
+        <label for="designationCode">Designation code</label>
+        <input
+          pInputText
+          formControlName="designationCode"
+          [invalid]="isInvalid('designationCode')"
+          type="text"
+          id="designationCode"
+          placeholder="Enter Designation Code"
+          fluid
+        />
+        @if (isInvalid('designationCode')) {
+            <p-message 
+                severity="error" 
+                size="small" 
+                variant="simple">
+                {{ getErrorMessage('designationCode')}}
+            </p-message>
+        }
+      </div>
+      <div class="layout-input-field col-sm-6">
+        <label for="designationName">Designation Name</label>
+        <input
+          pInputText
+          formControlName="designationName"
+          [invalid]="isInvalid('designationName')"
+          type="text"
+          id="designationName"
+          placeholder="Enter Department Name"
+          fluid
+          maxlength="10"
+        />
+        @if (isInvalid('designationName')) {
+            <p-message 
+                severity="error" 
+                size="small" 
+                variant="simple">
+                {{ getErrorMessage('designationName')}}
+            </p-message>
+        }
+      </div>
+      <div class="layout-input-field col-sm-6">
+        <label for="description">Description</label>
+        <input
+          pInputText
+          formControlName="description"
+          [invalid]="isInvalid('description')"
+          type="text"
+          id="description"
+          placeholder="Enter Description"
+          fluid
+        />
+        @if (isInvalid('description')) {
+            <p-message 
+                severity="error" 
+                size="small" 
+                variant="simple">
+                {{ getErrorMessage('description')}}
+            </p-message>
+        }
+      </div>
+    
+      <div class="layout-input-field col-sm-6">
+        <label for="designationHead">Designation Head</label>
+        <p-select
+          formControlName="designationHead"
+          [options]="[]"
+          [invalid]="isInvalid('designationHead')"
+          optionLabel="label"
+          optionValue="value"
+          placeholder="Select Designation Head"
+          fluid
+        />
+        @if (isInvalid('designationHead')) {
+            <p-message 
+                severity="error" 
+                size="small" 
+                variant="simple">
+                {{ getErrorMessage('designationHead')}}
+            </p-message>
+        }
+      </div>
+      <div class="layout-input-field col-sm-6">
+        <label for="status">Status</label>
+        <p-select
+          formControlName="status"
+          [options]="[]"
+          [invalid]="isInvalid('status')"
+          optionLabel="label"
+          optionValue="value"
+          placeholder="Select Status"
+          fluid
+        />
+        @if (isInvalid('status')) {
+            <p-message 
+                severity="error" 
+                size="small" 
+                variant="simple">
+                {{ getErrorMessage('status')}}
+            </p-message>
+        }
+      </div>
+    </div>
+    
+    <button pButton type="submit">
+      <span pButtonLabel>Submit</span>
+    </button>
+  </form>

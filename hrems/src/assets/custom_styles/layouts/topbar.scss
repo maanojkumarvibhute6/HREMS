@@ -1,0 +1,52 @@
+.layout-topbar {
+    width: 100%;
+    min-height: 4rem;
+    padding: 0px 3rem;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    background: white;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    z-index: 999;
+    border-bottom: 1px solid #ccc;
+    box-shadow: 0px 0px 6px 3px #ccc;
+
+    .company-logo-container {
+        display: flex;
+        align-items: center;
+
+        i {
+            background: #f1f5f9;
+            padding: 10px;
+            margin-right: 1rem;
+            border-radius: 50%;
+            font-size: 18px;
+        }
+
+        img {
+            width: 50px;
+            height: auto;
+        }
+    }
+
+    .user-info-container {
+        i.toggle {
+            padding: 10px;
+            margin-left: 1rem;
+            font-size: 18px;
+
+            &:hover {
+                border-radius: 50%;
+                background: #f1f5f9;
+                cursor: pointer;
+            }
+        }
+
+        .profile-dropdown {
+            list-style: none;
+        }
+    }
+}

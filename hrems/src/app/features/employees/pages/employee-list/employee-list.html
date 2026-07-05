@@ -1,0 +1,147 @@
+<div class="layout-employees">
+  <p-card>
+    <ng-template #title>
+      <i class="pi pi-users"></i>
+      <div class="page-info">
+        <h3 class="page-title">Employees</h3>
+        <span class="page-subtitle">List of employees of your organization.</span>
+      </div>
+      
+    </ng-template>
+
+    <p-table
+      #dt1
+      [value]="employeesList"
+      [dataKey]="'employeeId'"
+      [rows]="10"
+      [rowsPerPageOptions]="[10, 25, 50, 100]"
+      [paginator]="true"
+      [globalFilterFields]="globalFilterFields"
+      showGridlines
+      [scrollable]="true"
+      [rowHover]="true"
+      class="mt-2"
+    >
+      <ng-template #caption>
+        <div class="custom-header">
+          <div class="custom-buttons col-6">
+            <p-button
+              label="Clear"
+              [outlined]="true"
+              icon="pi pi-filter-slash"
+              (click)="clear(dt1)"
+            />
+            <p-button
+              class="ml-3"
+              label="Refresh"
+              [outlined]="true"
+              icon="pi pi-refresh"
+              (click)="onRefresh()"
+            />
+          </div>
+          <div class="custom-search col-6">
+            <p-iconfield iconPosition="left" class="ml-auto">
+              <p-inputicon>
+                <i class="pi pi-search"></i>
+              </p-inputicon>
+              <input
+                pInputText
+                type="text"
+                (input)="dt1.filterGlobal($event.target.value, 'contains')"
+                placeholder="Search keyword"
+              />
+            </p-iconfield>
+            <a (click)="redirectTo()" pButton class="ml-3">
+              <i class="pi pi-plus"></i>
+              <span pButtonLabel>Add Employee</span>
+            </a>
+          </div>
+        </div>
+      </ng-template>
+      <ng-template #header>
+        <tr>
+          <th style="min-width: 10rem">
+            <div class="table-filter-setup">
+              Employee ID
+              <p-columnFilter type="text" field="employeeId" display="menu" />
+            </div>
+          </th>
+          <th style="min-width: 15rem">
+            <div class="table-filter-setup">
+              Name
+              <p-columnFilter type="text" field="name" display="menu" />
+            </div>
+          </th>
+          <th style="min-width: 20rem">
+            <div class="table-filter-setup">
+              Email
+              <p-columnFilter type="text" field="email" display="menu" />
+            </div>
+          </th>
+          <th style="min-width: 15rem">
+            <div class="table-filter-setup">
+              Department
+              <p-columnFilter type="text" field="department" display="menu" />
+            </div>
+          </th>
+          <th style="min-width: 15rem">
+            <div class="table-filter-setup">
+              Designation
+              <p-columnFilter type="text" field="designation" display="menu" />
+            </div>
+          </th>
+          <th style="min-width: 15rem">
+            <div class="text-center">Current Status</div>
+          </th>
+          <th style="min-width: 10rem">
+            <div class="text-center">Action</div>
+          </th>
+        </tr>
+      </ng-template>
+      <ng-template #body let-employeeDetails>
+        <tr>
+          <td>{{ employeeDetails.employeeId }}</td>
+          <td>{{ employeeDetails.name | titlecase }}</td>
+          <td>{{ employeeDetails.email }}</td>
+          <td>{{ employeeDetails.department | titlecase }}</td>
+          <td>{{ employeeDetails.designation | titlecase }}</td>
+          <td class="text-center">
+            <p-tag
+              [value]="employeeDetails.status"
+              [severity]="getSeverity(employeeDetails.isActive)"
+            />
+          </td>
+          <td class="text-center">
+            <button
+              (click)="menu.toggle($event)"
+              type="button"
+              pButton
+              severity="secondary"
+              [outlined]="true"
+              iconOnly
+              aria-label="Apps"
+            >
+              <i class="pi pi-ellipsis-v"></i>
+            </button>
+            <p-menu class="text-start" #menu [model]="items" [popup]="true">
+              <ng-template #item let-item>
+                <a (click)="openMenu(item.label, employeeDetails)" pRipple class="p-menu-item-link">
+                  <span class="p-menu-item-icon" [ngClass]="item.icon"></span>
+                  <span class="p-menu-item-label">{{ item.label }}</span>
+                </a>
+              </ng-template>
+            </p-menu>
+          </td>
+        </tr>
+      </ng-template>
+      <ng-template #emptymessage>
+        <tr>
+          <td colspan="9">No Employee found.</td>
+        </tr>
+      </ng-template>
+    </p-table>
+    
+  </p-card>
+</div>
+
+<p-toast />

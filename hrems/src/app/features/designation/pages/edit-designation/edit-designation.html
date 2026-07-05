@@ -1,0 +1,19 @@
+<div class="layout-designations">
+  <p-card>
+    <ng-template #title>
+      <i class="pi pi-user-edit"></i>
+      <div class="page-info">
+        <h3 class="page-title">Edit Designation</h3>
+        <span class="page-subtitle">Edit designation for your organization.</span>
+      </div>
+      
+    </ng-template>
+
+    <app-designation-form
+      [formType]="'edit'"
+    ></app-designation-form>
+
+  </p-card>
+</div>
+
+<p-toast />
