@@ -1,0 +1,98 @@
+<div class="layout-employees">
+  <p-card>
+    <ng-template #title>
+      <i class="pi pi-user"></i>
+      <div class="page-info">
+        <h3 class="page-title">View Employee</h3>
+        <span class="page-subtitle">Details employee view of your organization.</span>
+      </div>
+      
+    </ng-template>
+
+    @if (isEmployeeDetailsRetrived()) {
+      <div class="layout-employee-details">
+        <div class="layout-input-field col-6">
+          <div class="row">
+            <div class="col-sm-3">
+              <label for="employeeId">Employee ID</label>
+            </div>
+            <div class="col-sm-9">: {{ employeeDetails.employeeId }}</div>
+          </div>
+        </div>
+        <div class="layout-input-field col-6">
+          <div class="row">
+            <div class="col-sm-3">
+              <label for="name">Name</label>
+            </div>
+            <div class="col-sm-9">: {{ employeeDetails.name | titlecase }}</div>
+          </div>
+        </div>
+        <div class="layout-input-field col-6">
+          <div class="row">
+            <div class="col-sm-3">
+              <label for="email">Email</label>
+            </div>
+            <div class="col-sm-9">: {{ employeeDetails.email }}</div>
+          </div>
+        </div>
+        <div class="layout-input-field col-6">
+          <div class="row">
+            <div class="col-sm-3">
+              <label for="phone">Phone</label>
+            </div>
+            <div class="col-sm-9">: {{ employeeDetails.phone }}</div>
+          </div>
+        </div>
+        <div class="layout-input-field col-6">
+          <div class="row">
+            <div class="col-sm-3">
+              <label for="department">Department</label>
+            </div>
+            <div class="col-sm-9">: {{ employeeDetails.department | titlecase }}</div>
+          </div>
+        </div>
+        <div class="layout-input-field col-6">
+          <div class="row">
+            <div class="col-sm-3">
+              <label for="designation">Designation</label>
+            </div>
+            <div class="col-sm-9">: {{ employeeDetails.designation | titlecase }}</div>
+          </div>
+        </div>
+        <div class="layout-input-field col-6">
+          <div class="row">
+            <div class="col-sm-3">
+              <label for="role">Role</label>
+            </div>
+            <div class="col-sm-9">: {{ employeeDetails.role | titlecase }}</div>
+          </div>
+        </div>
+        <div class="layout-input-field col-6">
+          <div class="row">
+            <div class="col-sm-3">
+              <label for="salary">Salary</label>
+            </div>
+            <div class="col-sm-9">: {{ employeeDetails.salary | currency: 'INR' }}</div>
+          </div>
+        </div>
+        <div class="layout-input-field col-6">
+          <div class="row">
+            <div class="col-sm-3">
+              <label for="status">Current Status</label>
+            </div>
+            <div class="col-sm-9">
+              :
+              <p-tag
+                [value]="employeeDetails.isActive === true ? 'Active' : 'Inactive'"
+                [severity]="getSeverity(employeeDetails.isActive)"
+              />
+            </div>
+          </div>
+        </div>
+      </div>
+    }
+
+  </p-card>
+</div>
+
+<p-toast />

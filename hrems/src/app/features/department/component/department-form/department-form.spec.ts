@@ -1,0 +1,22 @@
+import { ComponentFixture, TestBed } from '@angular/core/testing';
+
+import { DepartmentFormComponent } from './department-form';
+
+describe('DepartmentFormComponent', () => {
+  let component: DepartmentFormComponent;
+  let fixture: ComponentFixture<DepartmentFormComponent>;
+
+  beforeEach(async () => {
+    await TestBed.configureTestingModule({
+      imports: [DepartmentFormComponent],
+    }).compileComponents();
+
+    fixture = TestBed.createComponent(DepartmentFormComponent);
+    component = fixture.componentInstance;
+    await fixture.whenStable();
+  });
+
+  it('should create', () => {
+    expect(component).toBeTruthy();
+  });
+});

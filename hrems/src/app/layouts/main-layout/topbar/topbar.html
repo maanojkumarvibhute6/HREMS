@@ -1,0 +1,11 @@
+<div class="layout-topbar">
+  <div class="company-logo-container">
+    <i class="pi pi-bars"></i>
+    <img src="../../../../assets/images/logo_transparent.png" alt="logo.png">
+  </div>
+  <div class="user-info-container">
+    <i class="pi pi-bell toggle"></i>
+    <i (click)="menu.toggle($event)" class="pi pi-user toggle"></i>
+    <p-menu #menu [model]="items" [popup]="true" />
+  </div>
+</div>

@@ -1,0 +1,107 @@
+{
+    "status": {
+        "status": "Success",
+        "statusCode": 200,
+        "message": "Designation list retrived successfully"
+    },
+    "data": [
+        {
+            "designationCode": "DSG1",
+            "designationName": "Angular Developer",
+            "designation": "Software designation",
+            "designationHead": "designation Head",
+            "isActive": true,
+            "status": "Active"
+        },
+        {
+            "designationCode": "DSG2",
+            "designationName": "Angular Developer",
+            "designation": "Software designation",
+            "designationHead": "designation Head",
+            "isActive": true,
+            "status": "Active"
+        },
+        {
+            "designationCode": "DSG3",
+            "designationName": "Angular Developer",
+            "designation": "Software designation",
+            "designationHead": "designation Head",
+            "isActive": true,
+            "status": "Active"
+        },
+        {
+            "designationCode": "DSG4",
+            "designationName": "Angular Developer",
+            "designation": "Software designation",
+            "designationHead": "designation Head",
+            "isActive": true,
+            "status": "Active"
+        },
+        {
+            "designationCode": "DSG5",
+            "designationName": "Angular Developer",
+            "designation": "Software designation",
+            "designationHead": "designation Head",
+            "isActive": false,
+            "status": "Inactive"
+        },
+        {
+            "designationCode": "DSG6",
+            "designationName": "Angular Developer",
+            "designation": "Software designation",
+            "designationHead": "designation Head",
+            "isActive": true,
+            "status": "Active"
+        },
+        {
+            "designationCode": "DSG7",
+            "designationName": "Angular Developer",
+            "designation": "Software designation",
+            "designationHead": "designation Head",
+            "isActive": true,
+            "status": "Active"
+        },
+        {
+            "designationCode": "DSG8",
+            "designationName": "Angular Developer",
+            "designation": "Software designation",
+            "designationHead": "designation Head",
+            "isActive": true,
+            "status": "Active"
+        },
+        {
+            "designationCode": "DSG9",
+            "designationName": "Angular Developer",
+            "designation": "Software designation",
+            "designationHead": "designation Head",
+            "isActive": false,
+            "status": "Inactive"
+        },
+        {
+            "designationCode": "DSG10",
+            "designationName": "Angular Developer",
+            "designation": "Software designation",
+            "designationHead": "designation Head",
+            "isActive": true,
+            "status": "Active"
+        },
+        {
+            "designationCode": "DSG11",
+            "designationName": "Angular Developer",
+            "designation": "Software designation",
+            "designationHead": "designation Head",
+            "isActive": true,
+            "status": "Active"
+        },
+        {
+            "designationCode": "DSG12",
+            "designationName": "Angular Developer",
+            "designation": "Software designation",
+            "designationHead": "designation Head",
+            "isActive": true,
+            "status": "Active"
+        }
+        
+    ],
+    "length": 1
+}

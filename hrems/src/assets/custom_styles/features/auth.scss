@@ -1,0 +1,163 @@
+.bg-auth-layout-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+    overflow: hidden;
+    background: url('../../images/auth_bg_image.jpg');
+    background-attachment: fixed;
+    background-position: center;
+    background-size: cover;
+
+    .auth-layout-container-center {
+        width: 100%;
+
+        .auth-layout-left {
+            .company-logo-creation {
+                img {
+                    width: calc(100vw - 51vw);
+                }
+            }
+        }
+
+        .auth-layout-right {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+
+            .p-card {
+                width: 80%;
+                height: 80%;
+
+                .p-card-header {
+                    .bg-login-page {
+                        width: 100%;
+                        height: auto;
+                    }
+                }
+
+                .p-card-body {
+                    padding: 3rem 5rem;
+                    height: 100%;
+
+                    .p-card-title {
+                        text-align: center;
+                    }
+                }
+
+            }
+
+            .auth-layout-type {
+                text-align: center;
+                margin: 4rem 0;
+
+
+                .users-logo i {
+                    font-size: 5rem;
+                    border: 5px solid black;
+                    border-radius: 50%;
+                    padding: 20px;
+                    box-shadow: inset 0 0 7px 0px;
+                }
+
+                .auth-title {
+                    font-size: 4rem;
+                    font-weight: bolder;
+                    font-variant: small-caps;
+                }
+
+                .auth-subtitle {
+                    font-size: 1.5rem;
+                    margin-bottom: 0.5rem;
+                    font-weight: bolder;
+                    font-variant: small-caps;
+                }
+            }
+
+
+            .auth-body {
+                .layout-input-field {
+                    margin: 2rem 0px;
+
+                    .p-inputtext {
+                        padding: 1rem 3rem;
+                        font-size: 1.5rem;
+                    }
+
+                    .p-floatlabel {
+                        .p-iconfield .pi{
+                            font-size: 1.3rem;
+                        }
+
+                        label {
+                            font-size: 1.3rem;
+                        }
+                    }
+
+                    .p-message.p-message-error {
+                        &.p-message-sm .p-message-text {
+                            font-size: 1.1rem;
+                        }
+                    }
+
+
+                }
+
+                .info-text {
+                    font-size: 1.2rem;
+                    a {
+                        font-weight: bold;
+                    }
+                }
+            }
+        }
+
+        .auth-footer {
+            text-align: center;
+            margin-top: 3rem;
+        }
+    }
+
+
+
+}
+
+@media (max-width: 576px) {
+    .auth-layout-container-center {
+        .auth-layout-left {
+            .company-logo-creation {
+                img {
+                    width: calc(100vw - 0vw) !important;
+                }
+            }
+        }
+
+        .auth-layout-right {
+            .p-card {
+                margin-bottom: 10rem;
+            }
+        }
+
+
+    }
+}
+
+@media (min-width: 576px) and (max-width: 767px) {
+    .auth-layout-container-center {
+        .auth-layout-left {
+            .company-logo-creation {
+                img {
+                    width: calc(100vw - 0vw) !important;
+                }
+            }
+        }
+
+        .auth-layout-right {
+            .p-card {
+                margin-bottom: 10rem;
+            }
+        }
+
+
+    }
+}

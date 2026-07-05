@@ -1,0 +1,28 @@
+<p-floatlabel variant="on">
+  <p-iconfield>
+    @if (enableIcon) {
+      <p-inputicon>
+        <i [class]="inputIcon"></i>
+      </p-inputicon>
+    }
+    @if (enableInputText) {
+      <input
+        pInputText
+        [type]="inputType"
+        [formControl]="controlName"
+        [invalid]="isInvalid()"
+        [id]="formcontrolName"
+        autocomplete="off"
+        fluid
+        pSize="large"
+      />
+    }
+  </p-iconfield>
+  <label [for]="formcontrolName">{{ labelName }}</label>
+</p-floatlabel>
+
+@if (isInvalid()) {
+  <p-message severity="error" size="small" variant="simple">
+    {{ getErrorMessage(formcontrolName) }}
+  </p-message>
+}
