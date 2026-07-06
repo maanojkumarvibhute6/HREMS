@@ -1,97 +1,147 @@
 <div class="layout-employees">
   <p-card>
     <ng-template #title>
-      <i class="pi pi-user"></i>
-      <div class="page-info">
-        <h3 class="page-title">View Employee</h3>
-        <span class="page-subtitle">Details employee view of your organization.</span>
+      <div class="d-flex">
+        <i class="pi pi-user"></i>
+        <div class="page-info">
+          <h3 class="page-title">Employee Details</h3>
+          <span class="page-subtitle">View complete information about the employee.</span>
+        </div>
       </div>
-      
+      <div class="d-flex align-items-center">
+        <a (click)="redirectTo()" pButton class="ml-3">
+          <span class="pi pi-user-edit"></span>
+          <span pButtonLabel>Edit Employee</span>
+        </a>
+      </div>
     </ng-template>
 
     @if (isEmployeeDetailsRetrived()) {
-      <div class="layout-employee-details">
-        <div class="layout-input-field col-6">
-          <div class="row">
-            <div class="col-sm-3">
-              <label for="employeeId">Employee ID</label>
-            </div>
-            <div class="col-sm-9">: {{ employeeDetails.employeeId }}</div>
+      <div class="employee-details-view">
+        <div class="row">
+          <div class="col-sm-12 col-md-4 employee-view-left">
+            <p-card>
+              <ng-template #title>
+                <div class="page-info">
+                  <span class="page-subtitle">Employee Profile</span>
+                </div>
+              </ng-template>
+              <ng-template #content>
+                <div class="row">
+                  <div class="col-12 employee-profile-id-card">
+                    <img src="../../../../../assets/images/logo_transparent.png" alt="" srcset="" />
+                  </div>
+                  <div class="col-sm-6">
+                    <img
+                      class="profile-default-photo"
+                      src="../../../../../assets/images/profile-default.png"
+                      alt="profile-default"
+                    />
+                  </div>
+                  <div class="col-sm-6">
+                    <h6 class="profile-text">{{ employeeDetails.name | titlecase }}</h6>
+                    <h6 class="profile-text">{{ employeeDetails.employeeId }}</h6>
+                    <h6 class="profile-text">{{ employeeDetails.department | titlecase }}</h6>
+                    <h6 class="profile-text">{{ employeeDetails.designation | titlecase }}</h6>
+                    <h6 class="profile-text">
+                      <i
+                        class="circle"
+                        [ngClass]="
+                          employeeDetails.isActive === true ? 'circle-active' : 'circle-inactive'
+                        "
+                      ></i>
+                      {{ employeeDetails.status | titlecase }}
+                    </h6>
+                  </div>
+                </div>
+              </ng-template>
+            </p-card>
           </div>
-        </div>
-        <div class="layout-input-field col-6">
-          <div class="row">
-            <div class="col-sm-3">
-              <label for="name">Name</label>
-            </div>
-            <div class="col-sm-9">: {{ employeeDetails.name | titlecase }}</div>
-          </div>
-        </div>
-        <div class="layout-input-field col-6">
-          <div class="row">
-            <div class="col-sm-3">
-              <label for="email">Email</label>
-            </div>
-            <div class="col-sm-9">: {{ employeeDetails.email }}</div>
-          </div>
-        </div>
-        <div class="layout-input-field col-6">
-          <div class="row">
-            <div class="col-sm-3">
-              <label for="phone">Phone</label>
-            </div>
-            <div class="col-sm-9">: {{ employeeDetails.phone }}</div>
-          </div>
-        </div>
-        <div class="layout-input-field col-6">
-          <div class="row">
-            <div class="col-sm-3">
-              <label for="department">Department</label>
-            </div>
-            <div class="col-sm-9">: {{ employeeDetails.department | titlecase }}</div>
-          </div>
-        </div>
-        <div class="layout-input-field col-6">
-          <div class="row">
-            <div class="col-sm-3">
-              <label for="designation">Designation</label>
-            </div>
-            <div class="col-sm-9">: {{ employeeDetails.designation | titlecase }}</div>
-          </div>
-        </div>
-        <div class="layout-input-field col-6">
-          <div class="row">
-            <div class="col-sm-3">
-              <label for="role">Role</label>
-            </div>
-            <div class="col-sm-9">: {{ employeeDetails.role | titlecase }}</div>
-          </div>
-        </div>
-        <div class="layout-input-field col-6">
-          <div class="row">
-            <div class="col-sm-3">
-              <label for="salary">Salary</label>
-            </div>
-            <div class="col-sm-9">: {{ employeeDetails.salary | currency: 'INR' }}</div>
-          </div>
-        </div>
-        <div class="layout-input-field col-6">
-          <div class="row">
-            <div class="col-sm-3">
-              <label for="status">Current Status</label>
-            </div>
-            <div class="col-sm-9">
-              :
-              <p-tag
-                [value]="employeeDetails.isActive === true ? 'Active' : 'Inactive'"
-                [severity]="getSeverity(employeeDetails.isActive)"
-              />
-            </div>
+          <div class="col-sm-12 col-md-8 employee-view-right">
+            <p-card>
+              <ng-template #title>
+                <div class="page-info">
+                  <span class="page-subtitle">Personal Information</span>
+                </div>
+              </ng-template>
+              <ng-template #content>
+                <h5 class="profile-text">
+                  Full Name: {{ (employeeDetails.name | titlecase) || 'NA' }}
+                </h5>
+                <h5 class="profile-text">First Name: Manoj Kumar</h5>
+                <h5 class="profile-text">Last Name: Vibhute</h5>
+                <h5 class="profile-text">Gender: Male</h5>
+                <h5 class="profile-text">Date of Birth: 15-Aug-1998</h5>
+                <h5 class="profile-text">Marital Status: Single</h5>
+                <h5 class="profile-text">Nationality: India</h5>
+              </ng-template>
+            </p-card>
+
+            <p-card class="mt-4">
+              <ng-template #title>
+                <div class="page-info">
+                  <span class="page-subtitle">Contact Information</span>
+                </div>
+              </ng-template>
+              <ng-template #content>
+                <h5 class="profile-text">Email: manoj@gmail.com</h5>
+                <h5 class="profile-text">Mobile Number: +91 XXXXX XXXXX</h5>
+                <h5 class="profile-text">Alternate Number: +91 XXXXX XXXXX</h5>
+                <h5 class="profile-text">Address: Hitech City</h5>
+                <h5 class="profile-text">City: Hyderabad</h5>
+                <h5 class="profile-text">State: Telangana</h5>
+                <h5 class="profile-text">Country: India</h5>
+                <h5 class="profile-text">Pincode: 500081</h5>
+              </ng-template>
+            </p-card>
+
+            <p-card class="mt-4">
+              <ng-template #title>
+                <div class="page-info">
+                  <span class="page-subtitle">Professional Information</span>
+                </div>
+              </ng-template>
+              <ng-template #content>
+                <h5 class="profile-text">Employee ID: EMP001</h5>
+                <h5 class="profile-text">Department: Information Technology</h5>
+                <h5 class="profile-text">Designation: Senior Software Engineer</h5>
+                <h5 class="profile-text">Reporting Manager: Manoj Kumar</h5>
+                <h5 class="profile-text">Employment Type: Full Time</h5>
+                <h5 class="profile-text">Joining Date: 15-Jan-2024</h5>
+                <h5 class="profile-text">Experience: 5 Years</h5>
+                <h5 class="profile-text">Work Location: Hyderabad</h5>
+              </ng-template>
+            </p-card>
+
+            <p-card class="mt-4">
+              <ng-template #title>
+                <div class="page-info">
+                  <span class="page-subtitle">Account Information</span>
+                </div>
+              </ng-template>
+              <ng-template #content>
+                <h5 class="profile-text">Username: manojkumar</h5>
+                <h5 class="profile-text">Role: Employee</h5>
+                <h5 class="profile-text">Status: Active</h5>
+              </ng-template>
+            </p-card>
+
+            <p-card class="mt-4">
+              <ng-template #title>
+                <div class="page-info">
+                  <span class="page-subtitle">Emergency Contact</span>
+                </div>
+              </ng-template>
+              <ng-template #content>
+                <h5 class="profile-text">Contact Name: Sri Rama Sharma</h5>
+                <h5 class="profile-text">Relationship: Father</h5>
+                <h5 class="profile-text">Mobile Number: +91 XXXXX XXXXX</h5>
+              </ng-template>
+            </p-card>
           </div>
         </div>
       </div>
     }
-
   </p-card>
 </div>
 

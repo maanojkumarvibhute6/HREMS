@@ -5,9 +5,13 @@
 
     .statistics-cards {
         .dashboard-info {
-            margin-bottom: 1rem;
+            margin-bottom: 1.25rem;
 
             .p-card {
+                &.statistic-cards {
+                    min-height: 11rem;
+                }
+
                 .p-card-title {
                     i {
                         position: relative;

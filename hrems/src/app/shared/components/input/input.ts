@@ -1,6 +1,6 @@
-import { Component, inject, Input } from '@angular/core';
+import { Component, Input } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { ControlContainer, FormControl, FormGroup, FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { FormControl, FormGroup, FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 import { MessageService } from 'primeng/api';
 import { ButtonModule } from 'primeng/button';
@@ -14,13 +14,8 @@ import { DatePickerModule } from 'primeng/datepicker';
 import { FluidModule } from 'primeng/fluid';
 import { SelectModule } from 'primeng/select';
 
-export interface Option {
-    label: string;
-    value: string;
-}
-
 @Component({
-  selector: 'app-input-field',
+  selector: 'app-input',
   imports: [
     CommonModule,
     FormsModule,
@@ -32,41 +27,37 @@ export interface Option {
     IconFieldModule,
     InputIconModule,
     RadioButtonModule,
-    DatePickerModule,
+    DatePickerModule, 
     FluidModule,
-    SelectModule,
+    SelectModule 
   ],
-  templateUrl: './input-field.html',
+  templateUrl: './input.html',
   styles: ``,
 })
-export class InputFieldComponent {
-  private controlContainer = inject(ControlContainer);
+export class InputComponent {
+  @Input() enableIcon: boolean = false;
+  @Input() passwordIcon: boolean = false;
+  @Input() inputTextField: boolean = false;
+  @Input() radioInputField: boolean = false;
+  @Input() calendarInputField: boolean = false;
+  @Input() selectInputField: boolean = false;
+  @Input() enableSelectFilter: boolean = false;
 
-  @Input() type!: 'text' | 'password' | 'email' | 'textarea' | 'select' | 'radio' | 'date';
-  @Input() showIcon: boolean = false;
-  @Input() showSelectFilter: boolean = false;
-
-  @Input() iconName: string = '';
+  @Input() inputIcon: string = '';
+  @Input() inputType: string = '';
   @Input() labelName: string = '';
-  @Input() controlName: string = '';
-
-  @Input() radioButtonList: Option[] = [];
-  @Input() selectOptionList: Option[] = [];
+  @Input() controlName!: FormControl;
+  @Input() controlGroup!: FormGroup;
+  @Input() formcontrolName: string = '';
+  @Input() radioButtonList!: any[];
+  @Input() selectOptionList!: any[];
 
   @Input() fieldlabels: Record<string, string> = {};
 
+
   // variables
-  passwordHidden: boolean = true;
+  showHidePassword: boolean = true;
 
-
-  
-  get formGroup(): FormGroup {
-    return this.controlContainer.control as FormGroup;
-  }
-  get control(): FormControl {
-    return this.formGroup.get(this.controlName) as FormControl;
-  }
-  
 
   // Error Validation and shows dynamic error messages
   private getFieldLabel(formcontrolName: string): string {
@@ -74,25 +65,25 @@ export class InputFieldComponent {
   }
 
   isInvalid(formcontrolName: string): boolean {
-    if (!this.formGroup) {
+    if (!this.controlGroup) {
       return false;
     }
-    const control = this.formGroup.get(formcontrolName);
+    const control = this.controlGroup.get(formcontrolName);
 
     return !!(
       (control?.invalid && control.touched) ||
-      (formcontrolName === 'confirmPassword' && this.formGroup.hasError('fieldsMismatch'))
+      (formcontrolName === 'confirmPassword' && this.controlGroup.hasError('fieldsMismatch'))
     );
   }
 
   getErrorMessage(formcontrolName: string): string {
-    if (!this.formGroup) {
+    if (!this.controlGroup) {
       return '';
     }
-    const control = this.formGroup.get(formcontrolName);
+    const control = this.controlGroup.get(formcontrolName);
 
-    // to display the cross-field error validation
-    if (formcontrolName === 'confirmPassword' && this.formGroup.hasError('fieldsMismatch')) {
+    // to display the cross-field error validation 
+    if (formcontrolName === 'confirmPassword' && this.controlGroup.hasError('fieldsMismatch')) {
       return 'Password and Confirm Password do not match';
     }
 
@@ -119,6 +110,8 @@ export class InputFieldComponent {
 
   // methods
   togglePassword() {
-    this.passwordHidden = !this.passwordHidden;
+    this.showHidePassword = !this.showHidePassword;
   }
+
 }
+

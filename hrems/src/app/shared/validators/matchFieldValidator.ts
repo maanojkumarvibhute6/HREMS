@@ -10,8 +10,6 @@ export function matchFieldsValidator(sourceField: string, targetField: string): 
             return null;
         }
 
-        return sourceValue === targetValue 
-                ? null 
-                : { fieldsMismatch: true };
+        return sourceValue === targetValue ? null : { fieldsMismatch: true };
     }
 }

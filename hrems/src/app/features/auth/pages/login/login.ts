@@ -2,6 +2,7 @@ import { CommonModule } from '@angular/common';
 import { Component, inject, signal } from '@angular/core';
 import { FormBuilder, FormsModule, ReactiveFormsModule, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
+import { finalize } from 'rxjs';
 
 import { MessageService } from 'primeng/api';
 import { ButtonModule } from 'primeng/button';
@@ -10,11 +11,16 @@ import { URL_ROUTES } from '../../../../core/constants/url.constant';
 import { InputFieldComponent } from '../../../../shared/components/input-field/input-field';
 import { AuthService } from '../../services/auth-service';
 import { LoginRequest, LoginResponse } from '../../../../core/models/login.model';
-import { finalize } from 'rxjs';
 
 @Component({
   selector: 'app-login',
-  imports: [CommonModule, FormsModule, ReactiveFormsModule, ButtonModule, InputFieldComponent],
+  imports: [
+    CommonModule, 
+    FormsModule, 
+    ReactiveFormsModule, 
+    ButtonModule, 
+    InputFieldComponent
+  ],
   templateUrl: './login.html',
   styles: ``,
 })

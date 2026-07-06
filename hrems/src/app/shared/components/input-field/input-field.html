@@ -1,28 +1,150 @@
-<p-floatlabel variant="on">
-  <p-iconfield>
-    @if (enableIcon) {
-      <p-inputicon>
-        <i [class]="inputIcon"></i>
-      </p-inputicon>
+<div class="layout-input-field">
+  @switch (type) {
+    @case ('text') {
+      <p-floatlabel variant="on">
+        <p-iconfield>
+          @if (showIcon) {
+            <p-inputicon>
+              <i class="pi" [class]="iconName"></i>
+            </p-inputicon>
+          }
+          <input
+            pInputText
+            fluid
+            pSize="large"
+            [id]="controlName"
+            [formControl]="control"
+            type="text"
+            [invalid]="isInvalid(controlName)"
+            autocomplete="off"
+          />
+        </p-iconfield>
+        <label [for]="controlName">{{ labelName }}</label>
+      </p-floatlabel>
     }
-    @if (enableInputText) {
-      <input
-        pInputText
-        [type]="inputType"
-        [formControl]="controlName"
-        [invalid]="isInvalid()"
-        [id]="formcontrolName"
-        autocomplete="off"
-        fluid
-        pSize="large"
-      />
+    @case ('email') {
+      <p-floatlabel variant="on">
+        <p-iconfield>
+          @if (showIcon) {
+            <p-inputicon>
+              <i class="pi" [class]="iconName"></i>
+            </p-inputicon>
+          }
+          <input
+            pInputText
+            fluid
+            pSize="large"
+            [id]="controlName"
+            [formControl]="control"
+            type="email"
+            [invalid]="isInvalid(controlName)"
+            autocomplete="off"
+          />
+        </p-iconfield>
+        <label [for]="controlName">{{ labelName }}</label>
+      </p-floatlabel>
     }
-  </p-iconfield>
-  <label [for]="formcontrolName">{{ labelName }}</label>
-</p-floatlabel>
+    @case ('password') {
+      <p-floatlabel variant="on">
+        <p-iconfield>
+          @if (showIcon) {
+            <p-inputicon>
+              <i 
+                (click)="togglePassword()"
+                class="password pi"
+                [ngClass]="passwordHidden ? 'pi-eye' : 'pi-eye-slash'"
+              ></i>
+            </p-inputicon>
+          }
+          <input
+            pInputText
+            fluid
+            pSize="large"
+            [id]="controlName"
+            [formControl]="control"
+            [type]="passwordHidden ? 'password' : 'text'"
+            [invalid]="isInvalid(controlName)"
+            autocomplete="off"
+          />
+        </p-iconfield>
+        <label [for]="controlName">{{ labelName }}</label>
+      </p-floatlabel>
+    }
+    @case ('textarea') {
+      <p-floatlabel variant="on">
+        <textarea
+          pTextarea
+          fluid
+          pSize="large"
+          [id]="controlName"
+          (invalid)="isInvalid(controlName)"
+          rows="7"
+          cols="30"
+          style="resize: none"
+          class="h-full"
+        ></textarea>
+        <label [for]="controlName">{{ labelName }}</label>
+      </p-floatlabel>
+    }
+    @case ('select') {
+      <p-floatlabel variant="on">
+        <p-select
+          [formControl]="control"
+          [options]="selectOptionList"
+          [invalid]="isInvalid(controlName)"
+          [id]="controlName"
+          autocomplete="off"
+          optionLabel="label"
+          optionValue="value"
+          fluid
+          size="large"
+          [filter]="showSelectFilter"
+          filterBy="label"
+        />
+        <label [for]="controlName">{{ labelName }}</label>
+      </p-floatlabel>
+    }
+    @case ('date') {
+      <div class="d-flex mt-4">
+        <label class="mr-4 align-content-center" [for]="controlName">{{ labelName }} </label>
+        <p-datepicker
+          dateFormat="dd/mm/yy"
+          placeholder="dd/mm/yy"
+          [iconDisplay]="'input'"
+          [showIcon]="true"
+          inputId="icondisplay"
+          style="height: 3rem"
+          [formControl]="control"
+          [invalid]="isInvalid(controlName)"
+        />
+      </div>
+    }
+    @case ('radio') {
+      <div class="d-flex mt-4">
+        <label class="mr-4" [for]="controlName">{{ labelName }}: </label>
+        @for (radioBtnOption of radioButtonList; track radioBtnOption.value) {
+          <div class="d-flex items-center gap-2 mr-4">
+            <p-radiobutton
+              [inputId]="radioBtnOption.value"
+              [formControl]="control"
+              [value]="radioBtnOption.value"
+              [invalid]="isInvalid(controlName)"
+              [id]="controlName"
+              autocomplete="off"
+              size="large"
+            />
+            <label pLabel [for]="radioBtnOption.value" class="text-sm">{{
+              radioBtnOption.label
+            }}</label>
+          </div>
+        }
+      </div>
+    }
+  }
 
-@if (isInvalid()) {
-  <p-message severity="error" size="small" variant="simple">
-    {{ getErrorMessage(formcontrolName) }}
-  </p-message>
-}
+  @if (isInvalid(controlName)) {
+    <p-message severity="error" size="small" variant="simple">
+      {{ getErrorMessage(controlName) }}
+    </p-message>
+  }
+</div>

@@ -1,0 +1,306 @@
+<!-- <form [formGroup]="pageFormFroup" (ngSubmit)="onFormSubmit()">
+  <div class="employee-profile-container">
+    <p-card class="mt-4">
+      <ng-template #title>
+        <div class="page-info">
+          <span class="page-subtitle">Profile Information</span>
+        </div>
+      </ng-template>
+      <ng-template #content>
+        <div class="row">
+          <div class="col-sm-12 col-md-4">
+            <input type="file" name="profile-photo" id="" />
+          </div>
+          <div class="col-sm-12 col-md-8">
+            <div class="row">
+              <div class="col-6">
+                <app-input-field
+                  [inputTextField]="true"
+                  [controlName]="pageFormFroup.controls.firstName"
+                  [formcontrolName]="'firstName'"
+                  inputType="text"
+                  labelName="First Name"
+                  [fieldlabels]="fieldlabels"
+                ></app-input-field>
+              </div>
+              <div class="col-6">
+                <app-input-field
+                  [inputTextField]="true"
+                  [controlName]="pageFormFroup.controls.lastName"
+                  [formcontrolName]="'lastName'"
+                  inputType="text"
+                  labelName="Last Name"
+                  [fieldlabels]="fieldlabels"
+                ></app-input-field>
+              </div>
+              <div class="col-6">
+                <app-input-field
+                  [selectInputField]="true"
+                  [controlName]="pageFormFroup.controls.gender"
+                  [formcontrolName]="'gender'"
+                  labelName="Gender"
+                  [selectOptionList]="genderList"
+                  [fieldlabels]="fieldlabels"
+                ></app-input-field>
+              </div>
+              <div class="col-6">
+                <app-input-field
+                  [calendarInputField]="true"
+                  [controlName]="pageFormFroup.controls.dob"
+                  [formcontrolName]="'dob'"
+                  labelName="Date of Birth"
+                  [fieldlabels]="fieldlabels"
+                ></app-input-field>
+              </div>
+              <div class="col-6">
+                <app-input-field
+                  [selectInputField]="true"
+                  [controlName]="pageFormFroup.controls.bloodGroup"
+                  [formcontrolName]="'bloodGroup'"
+                  labelName="Blood Group"
+                  [selectOptionList]="bloodGroupList"
+                  [enableSelectFilter]="true"
+                  [fieldlabels]="fieldlabels"
+                ></app-input-field>
+              </div>
+              <div class="col-6">
+                <app-input-field
+                  [selectInputField]="true"
+                  [controlName]="pageFormFroup.controls.materialStatus"
+                  [formcontrolName]="'materialStatus'"
+                  labelName="Material Status"
+                  [selectOptionList]="materialStatusList"
+                  [enableSelectFilter]="true"
+                  [fieldlabels]="fieldlabels"
+                ></app-input-field>
+              </div>
+              <div class="col-6">
+                <app-input-field
+                  [enableIcon]="false"
+                  [inputTextField]="true"
+                  [controlName]="pageFormFroup.controls.nationality"
+                  [formcontrolName]="'nationality'"
+                  inputType="text"
+                  labelName="Nationality"
+                  [fieldlabels]="fieldlabels"
+                ></app-input-field>
+              </div>
+            </div>
+          </div>
+        </div>
+      </ng-template>
+    </p-card>
+
+    <p-card class="mt-4">
+      <ng-template #title>
+        <div class="page-info">
+          <span class="page-subtitle">Contact Information</span>
+        </div>
+      </ng-template>
+      <ng-template #content>
+        <div class="row">
+          <div class="col-sm-12 col-md-4">
+            <app-input-field
+              [inputTextField]="true"
+              [controlName]="pageFormFroup.controls.email"
+              [formcontrolName]="'email'"
+              inputType="email"
+              labelName="Email"
+              [fieldlabels]="fieldlabels"
+            ></app-input-field>
+          </div>
+          <div class="col-sm-12 col-md-4">
+            <app-input-field
+              [inputTextField]="true"
+              [controlName]="pageFormFroup.controls.mobile"
+              [formcontrolName]="'mobile'"
+              inputType="text"
+              labelName="Mobile"
+              [fieldlabels]="fieldlabels"
+            ></app-input-field>
+          </div>
+          <div class="col-sm-12 col-md-4">
+            <app-input-field
+              [inputTextField]="true"
+              [controlName]="pageFormFroup.controls.alternateMobile"
+              [formcontrolName]="'alternateMobile'"
+              inputType="text"
+              labelName="Alternate Mobile"
+              [fieldlabels]="fieldlabels"
+            ></app-input-field>
+          </div>
+          <div class="col-sm-12 col-md-4">
+            <app-input-field
+              [inputTextField]="true"
+              [controlName]="pageFormFroup.controls.addressLine1"
+              [formcontrolName]="'addressLine1'"
+              inputType="text"
+              labelName="Address Line 1"
+              [fieldlabels]="fieldlabels"
+            ></app-input-field>
+          </div>
+          <div class="col-sm-12 col-md-4">
+            <app-input-field
+              [inputTextField]="true"
+              [controlName]="pageFormFroup.controls.addressLine2"
+              [formcontrolName]="'addressLine2'"
+              inputType="text"
+              labelName="Address Line 2"
+              [fieldlabels]="fieldlabels"
+            ></app-input-field>
+          </div>
+          <div class="col-sm-12 col-md-4">
+            <app-input-field
+              [inputTextField]="true"
+              [controlName]="pageFormFroup.controls.city"
+              [formcontrolName]="'city'"
+              inputType="text"
+              labelName="City"
+              [fieldlabels]="fieldlabels"
+            ></app-input-field>
+          </div>
+          <div class="col-sm-12 col-md-4">
+            <app-input-field
+              [inputTextField]="true"
+              [controlName]="pageFormFroup.controls.state"
+              [formcontrolName]="'state'"
+              inputType="text"
+              labelName="State"
+              [fieldlabels]="fieldlabels"
+            ></app-input-field>
+          </div>
+          <div class="col-sm-12 col-md-4">
+            <app-input-field
+              [inputTextField]="true"
+              [controlName]="pageFormFroup.controls.country"
+              [formcontrolName]="'country'"
+              inputType="text"
+              labelName="Country"
+              [fieldlabels]="fieldlabels"
+            ></app-input-field>
+          </div>
+          <div class="col-sm-12 col-md-4">
+            <app-input-field
+              [inputTextField]="true"
+              [controlName]="pageFormFroup.controls.pincode"
+              [formcontrolName]="'pincode'"
+              inputType="text"
+              labelName="Pincode"
+              [fieldlabels]="fieldlabels"
+            ></app-input-field>
+          </div>
+        </div>
+      </ng-template>
+    </p-card>
+
+    <p-card class="mt-4">
+      <ng-template #title>
+        <div class="page-info">
+          <span class="page-subtitle">Professional Information</span>
+        </div>
+      </ng-template>
+      <ng-template #content>
+        <div class="row">
+          <div class="col-sm-12 col-md-4">
+            <app-input-field
+              [selectInputField]="true"
+              [controlName]="pageFormFroup.controls.department"
+              [formcontrolName]="'department'"
+              labelName="Department"
+              [selectOptionList]="departmentList"
+              [enableSelectFilter]="true"
+              [fieldlabels]="fieldlabels"
+            ></app-input-field>
+          </div>
+          <div class="col-sm-12 col-md-4">
+            <app-input-field
+              [selectInputField]="true"
+              [controlName]="pageFormFroup.controls.designation"
+              [formcontrolName]="'designation'"
+              labelName="Designation"
+              [selectOptionList]="designationList"
+              [enableSelectFilter]="true"
+              [fieldlabels]="fieldlabels"
+            ></app-input-field>
+          </div>
+          <div class="col-sm-12 col-md-4">
+            <app-input-field
+              [selectInputField]="true"
+              [controlName]="pageFormFroup.controls.reportingManager"
+              [formcontrolName]="'reportingManager'"
+              labelName="Reporting Manager"
+              [enableSelectFilter]="true"
+              [selectOptionList]="[]"
+              [fieldlabels]="fieldlabels"
+            ></app-input-field>
+          </div>
+          <div class="col-sm-12 col-md-4">
+            <app-input-field
+              [selectInputField]="true"
+              [controlName]="pageFormFroup.controls.employmentType"
+              [formcontrolName]="'employmentType'"
+              labelName="Employment Type"
+              [selectOptionList]="employmentTypeList"
+              [fieldlabels]="fieldlabels"
+            ></app-input-field>
+          </div>
+          <div class="col-sm-12 col-md-4">
+            <app-input-field
+              [calendarInputField]="true"
+              [controlName]="pageFormFroup.controls.joiningDate"
+              [formcontrolName]="'dob'"
+              labelName="Joining Date"
+              [fieldlabels]="fieldlabels"
+            ></app-input-field>
+          </div>
+          <div class="col-sm-12 col-md-4">
+            <app-input-field
+              [inputTextField]="true"
+              [controlName]="pageFormFroup.controls.workLocation"
+              [formcontrolName]="'workLocation'"
+              labelName="Work Location"
+              inputType="text"
+              [fieldlabels]="fieldlabels"
+            ></app-input-field>
+          </div>
+        </div>
+      </ng-template>
+    </p-card>
+  
+    <p-card class="mt-4">
+      <ng-template #title>
+        <div class="page-info">
+          <span class="page-subtitle">Account Information</span>
+        </div>
+      </ng-template>
+      <ng-template #content>
+        <div class="row">
+          <div class="col-sm-12 col-md-4">
+            <app-input-field
+              [selectInputField]="true"
+              [controlName]="pageFormFroup.controls.role"
+              [formcontrolName]="'role'"
+              labelName="Role"
+              [selectOptionList]="roleList"
+              [fieldlabels]="fieldlabels"
+            ></app-input-field>
+          </div>
+          <div class="col-sm-12 col-md-4">
+            <app-input-field
+              [selectInputField]="true"
+              [controlName]="pageFormFroup.controls.status"
+              [formcontrolName]="'status'"
+              labelName="Status"
+              [selectOptionList]="statusList"
+              [fieldlabels]="fieldlabels"
+            ></app-input-field>
+          </div>
+        </div>
+      </ng-template>
+    </p-card>
+  </div>
+
+  <button pButton type="submit">
+    <span pButtonLabel>Submit</span>
+  </button>
+</form> -->

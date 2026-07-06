@@ -1,173 +1,40 @@
-  <form [formGroup]="pageFormFroup" (ngSubmit)="onFormSubmit()">
-    <div class="row">
-      <div class="layout-input-field col-sm-6">
-        <label for="name">Name</label>
-        <input
-          pInputText
-          formControlName="name"
-          [invalid]="isInvalid('name')"
-          type="text"
-          id="name"
-          placeholder="Enter Name"
-          fluid
-        />
-        @if (isInvalid('name')) {
-            <p-message 
-                severity="error" 
-                size="small" 
-                variant="simple">
-                {{ getErrorMessage('name')}}
-            </p-message>
-        }
-      </div>
-      <div class="layout-input-field col-sm-6">
-        <label for="phone">Phone</label>
-        <input
-          pInputText
-          formControlName="phone"
-          [invalid]="isInvalid('phone')"
-          type="text"
-          id="phone"
-          placeholder="Enter Phone Number"
-          fluid
-          maxlength="10"
-        />
-        @if (isInvalid('phone')) {
-            <p-message 
-                severity="error" 
-                size="small" 
-                variant="simple">
-                {{ getErrorMessage('phone')}}
-            </p-message>
-        }
-      </div>
-      <div class="layout-input-field col-sm-6">
-        <label for="email">Email</label>
-        <input
-          pInputText
-          formControlName="email"
-          [invalid]="isInvalid('email')"
-          type="email"
-          id="email"
-          placeholder="Enter Email Id"
-          fluid
-        />
-        @if (isInvalid('email')) {
-            <p-message 
-                severity="error" 
-                size="small" 
-                variant="simple">
-                {{ getErrorMessage('email')}}
-            </p-message>
-        }
-      </div>
-      
-      @if (formType !== 'edit') {
-        <div class="layout-input-field col-sm-6">
-          <label for="password">Password</label>
-          <input
-            pInputText
-            formControlName="password"
-            [invalid]="isInvalid('password')"
-            type="password"
-            id="password"
-            placeholder="Enter Password"
-            fluid
-          />
-          @if (isInvalid('password')) {
-              <p-message 
-                  severity="error" 
-                  size="small" 
-                  variant="simple">
-                  {{ getErrorMessage('password')}}
-              </p-message>
-          }
+<form [formGroup]="pageFormFroup" (ngSubmit)="onFormSubmit()">
+  <div class="employee-profile-container">
+    <p-card class="mt-4">
+      <ng-template #title>
+        <div class="page-info">
+          <span class="page-subtitle">Profile Creation</span>
         </div>
-      }
+      </ng-template>
+      <ng-template #content>
+        <div class="row">
+          <div class="col-sm-12 col-md-5 employee-profile-id-card">
+            <img src="../../../../../assets/images/logo_transparent.png" alt="" srcset="" />
+          </div>
+          <div class="col-sm-12 col-md-7">
+            <div class="row">
+              <div class="col-sm-12">
+                
+              </div>
+              <div class="col-sm-12 col-md-6">
+                
+              </div>
+              <div class="col-sm-12 col-md-6">
+                
+              </div>
+            </div>
+          </div>
+        </div>
+      </ng-template>
 
+    </p-card>
 
-      <div class="layout-input-field col-sm-6">
-        <label for="role">Role</label>
-        <p-select
-          formControlName="role"
-          [options]="employeeRoles"
-          [invalid]="isInvalid('role')"
-          optionLabel="label"
-          optionValue="value"
-          placeholder="Select Role"
-          fluid
-        />
-        @if (isInvalid('role')) {
-            <p-message 
-                severity="error" 
-                size="small" 
-                variant="simple">
-                {{ getErrorMessage('role')}}
-            </p-message>
-        }
-      </div>
-      <div class="layout-input-field col-sm-6">
-        <label for="department">Department</label>
-        <p-select
-          formControlName="department"
-          [options]="employeeDepartments"
-          [invalid]="isInvalid('department')"
-          optionLabel="label"
-          optionValue="value"
-          placeholder="Select Department"
-          fluid
-        />
-        @if (isInvalid('department')) {
-            <p-message 
-                severity="error" 
-                size="small" 
-                variant="simple">
-                {{ getErrorMessage('department')}}
-            </p-message>
-        }
-      </div>
-      <div class="layout-input-field col-sm-6">
-        <label for="designation">Designation</label>
-        <p-select
-          formControlName="designation"
-          [options]="employeeDesignations"
-          [invalid]="isInvalid('designation')"
-          optionLabel="label"
-          optionValue="value"
-          placeholder="Select Designation"
-          fluid
-        />
-        @if (isInvalid('designation')) {
-            <p-message 
-                severity="error" 
-                size="small" 
-                variant="simple">
-                {{ getErrorMessage('designation')}}
-            </p-message>
-        }
-      </div>
-      <div class="layout-input-field col-sm-6">
-        <label for="salary">Salary</label>
-        <input
-          pInputText
-          formControlName="salary"
-          [invalid]="isInvalid('salary')"
-          type="text"
-          id="salary"
-          placeholder="Enter Salary"
-          fluid
-        />
-        @if (isInvalid('salary')) {
-            <p-message 
-                severity="error" 
-                size="small" 
-                variant="simple">
-                {{ getErrorMessage('salary')}}
-            </p-message>
-        }
-      </div>
+    <div class="text-center">
+      <button class="mt-4" pButton size="large" type="submit">
+        <span pButtonLabel>Submit</span>
+      </button>
     </div>
-    <button pButton type="submit">
-      <span pButtonLabel>Submit</span>
-    </button>
-  </form>
+
+  </div>
+
+</form>

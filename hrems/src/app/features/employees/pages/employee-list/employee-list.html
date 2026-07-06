@@ -1,12 +1,19 @@
 <div class="layout-employees">
   <p-card>
     <ng-template #title>
-      <i class="pi pi-users"></i>
-      <div class="page-info">
-        <h3 class="page-title">Employees</h3>
-        <span class="page-subtitle">List of employees of your organization.</span>
+      <div class="d-flex">
+        <i class="pi pi-users"></i>
+        <div class="page-info">
+          <h3 class="page-title">Employees</h3>
+          <span class="page-subtitle">List of employees of your organization.</span>
+        </div>
       </div>
-      
+      <div class="d-flex align-items-center">
+        <a (click)="redirectTo()" pButton class="ml-3">
+          <span class="pi pi-user-plus"></span>
+          <span pButtonLabel>Add Employee</span>
+        </a>
+      </div>
     </ng-template>
 
     <p-table
@@ -51,10 +58,6 @@
                 placeholder="Search keyword"
               />
             </p-iconfield>
-            <a (click)="redirectTo()" pButton class="ml-3">
-              <i class="pi pi-plus"></i>
-              <span pButtonLabel>Add Employee</span>
-            </a>
           </div>
         </div>
       </ng-template>
