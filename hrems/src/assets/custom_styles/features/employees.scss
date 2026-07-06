@@ -5,11 +5,12 @@
         .p-card-body {
             .p-card-title {
                 display: inline-flex;
+                justify-content: space-between;
                 border-bottom: 1px solid #ccc;
                 padding-bottom: 1rem;
 
                 i {
-                    font-size: 1.5rem;
+                    font-size: 2rem;
                     border: 1px solid #ccc;
                     border-radius: 15px;
                     padding: 1rem;
@@ -68,13 +69,13 @@
                 justify-content: center;
 
                 img {
-                    width: 375px;
+                    width: calc(100vw - 85vw);
                     height: auto;
                 }
             }
 
             .profile-default-photo {
-                width: 180px;
+                width: calc(100vw - 90vw);
                 height: auto;
             }
 

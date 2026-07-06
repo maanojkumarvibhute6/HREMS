@@ -27,7 +27,7 @@
 
             .p-card {
                 width: 80%;
-                height: 80%;
+                height: auto;
 
                 .p-card-header {
                     .bg-login-page {
@@ -49,7 +49,7 @@
 
             .auth-layout-type {
                 text-align: center;
-                margin: 4rem 0;
+                margin: 2rem 0;
 
 
                 .users-logo i {
@@ -80,23 +80,28 @@
                     margin: 2rem 0px;
 
                     .p-inputtext {
-                        padding: 1rem 3rem;
-                        font-size: 1.5rem;
+                        font-size: 1.25rem;
+                        padding: 1rem;
+                        padding-left: 2.5rem;
                     }
 
                     .p-floatlabel {
-                        .p-iconfield .pi{
-                            font-size: 1.3rem;
+                        .p-iconfield .pi {
+                            font-size: 1.25rem;
+
+                            &.password {
+                                cursor: pointer;
+                            }
                         }
 
                         label {
-                            font-size: 1.3rem;
+                            font-size: 1.25rem;
                         }
                     }
 
                     .p-message.p-message-error {
                         &.p-message-sm .p-message-text {
-                            font-size: 1.1rem;
+                            font-size: 1rem;
                         }
                     }
 
@@ -105,6 +110,7 @@
 
                 .info-text {
                     font-size: 1.2rem;
+
                     a {
                         font-weight: bold;
                     }

@@ -1,12 +1,33 @@
-.layout-sidebar{
+
+.layout-wrapper.show-sidemenu {
+    .layout-sidebar {
+        position: fixed;
+        top: 6rem;
+        left: 2rem;
+        width: 20rem;
+        height: calc(-8rem + 100vh);
+    }
+}
+
+.layout-wrapper.hide-sidemenu {
+    .layout-sidebar {
+        position: absolute;
+        top: 6rem;
+        left: -20rem;
+        width: 20rem;
+        height: calc(-8rem + 100vh);
+    }
+}
+
+.layout-sidebar {
     position: fixed;
     top: 6rem;
     left: 2rem;
     width: 20rem;
     height: calc(-8rem + 100vh);
-    
+
     .custom-sidebar-menu {
-        
+
         .p-menu {
             height: calc(-8rem + 100vh);
             overflow-y: auto;

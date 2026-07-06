@@ -1,18 +1,16 @@
 <div class="layout-employees">
   <p-card>
     <ng-template #title>
-      <i class="pi pi-user-edit"></i>
-      <div class="page-info">
-        <h3 class="page-title">Edit Employee</h3>
-        <span class="page-subtitle">Edit employee in your organization.</span>
-      </div>
-      
+      <div class="d-flex">
+        <i class="pi pi-user-edit"></i>
+        <div class="page-info">
+          <h3 class="page-title">Edit Employee</h3>
+          <span class="page-subtitle">Edit employee in your organization.</span>
+        </div>
+      </div>     
     </ng-template>
 
-    <app-employee-form 
-      [formType]="'edit'"
-      [employeeId]="employeeId"
-    ></app-employee-form>
+    <app-employee-form [formType]="'edit'" [employeeId]="employeeId" ></app-employee-form>
 
   </p-card>
 </div>

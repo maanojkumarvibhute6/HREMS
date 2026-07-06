@@ -49,7 +49,7 @@ import { EmployeeService } from '../../../employees/services/employee-service';
     ButtonModule,
     SelectModule,
     CardModule,
-    InputFieldComponent,
+    // InputFieldComponent,
   ],
   templateUrl: './update-profile.html',
   styles: ``,

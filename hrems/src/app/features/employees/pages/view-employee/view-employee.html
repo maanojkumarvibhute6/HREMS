@@ -1,21 +1,23 @@
 <div class="layout-employees">
   <p-card>
     <ng-template #title>
-      <i class="pi pi-user-edit"></i>
-      <div class="page-info">
-        <h3 class="page-title">Employee Details</h3>
-        <span class="page-subtitle">View complete information about the employee.</span>
+      <div class="d-flex">
+        <i class="pi pi-user"></i>
+        <div class="page-info">
+          <h3 class="page-title">Employee Details</h3>
+          <span class="page-subtitle">View complete information about the employee.</span>
+        </div>
+      </div>
+      <div class="d-flex align-items-center">
+        <a (click)="redirectTo()" pButton class="ml-3">
+          <span class="pi pi-user-edit"></span>
+          <span pButtonLabel>Edit Employee</span>
+        </a>
       </div>
     </ng-template>
 
     @if (isEmployeeDetailsRetrived()) {
       <div class="employee-details-view">
-        <div class="d-flex justify-content-end mb-4">
-          <a (click)="redirectTo()" pButton class="ml-3">
-            <i class="pi pi-user-edit"></i>
-            <span pButtonLabel>Edit Employee</span>
-          </a>
-        </div>
         <div class="row">
           <div class="col-sm-12 col-md-4 employee-view-left">
             <p-card>
@@ -27,21 +29,21 @@
               <ng-template #content>
                 <div class="row">
                   <div class="col-12 employee-profile-id-card">
-                    <img src="../../../../../assets/images/logo_transparent.png" alt="" srcset="">
+                    <img src="../../../../../assets/images/logo_transparent.png" alt="" srcset="" />
                   </div>
-                  <div class="col-sm-5">
+                  <div class="col-sm-6">
                     <img
                       class="profile-default-photo"
                       src="../../../../../assets/images/profile-default.png"
                       alt="profile-default"
                     />
                   </div>
-                  <div class="col-sm-7">
-                    <h5 class="profile-text">{{ employeeDetails.name | titlecase }}</h5>
-                    <h5 class="profile-text">{{ employeeDetails.employeeId }}</h5>
-                    <h5 class="profile-text">{{ employeeDetails.department | titlecase }}</h5>
-                    <h5 class="profile-text">{{ employeeDetails.designation | titlecase }}</h5>
-                    <h5 class="profile-text">
+                  <div class="col-sm-6">
+                    <h6 class="profile-text">{{ employeeDetails.name | titlecase }}</h6>
+                    <h6 class="profile-text">{{ employeeDetails.employeeId }}</h6>
+                    <h6 class="profile-text">{{ employeeDetails.department | titlecase }}</h6>
+                    <h6 class="profile-text">{{ employeeDetails.designation | titlecase }}</h6>
+                    <h6 class="profile-text">
                       <i
                         class="circle"
                         [ngClass]="
@@ -49,7 +51,7 @@
                         "
                       ></i>
                       {{ employeeDetails.status | titlecase }}
-                    </h5>
+                    </h6>
                   </div>
                 </div>
               </ng-template>
@@ -92,7 +94,7 @@
                 <h5 class="profile-text">Pincode: 500081</h5>
               </ng-template>
             </p-card>
-            
+
             <p-card class="mt-4">
               <ng-template #title>
                 <div class="page-info">

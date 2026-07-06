@@ -7,8 +7,16 @@
         flex-direction: column;
         min-height: 100vh;
         padding: 6rem 2rem 0px;
-        margin-left: 22rem;
+        // margin-left: 22rem;
         overflow-x: hidden;
+
+        &.show {
+            margin-left: 22rem;
+        }
+
+        &.hide {
+            margin-left: 0 !important;
+        }
 
         .layout-main {
             padding-bottom: 2rem;
@@ -16,4 +24,6 @@
         }
 
     }
+
+
 }

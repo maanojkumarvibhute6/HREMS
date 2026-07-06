@@ -50,7 +50,7 @@ import { CardModule } from 'primeng/card';
     ButtonModule,
     SelectModule,
     CardModule,
-    InputFieldComponent,
+    // InputFieldComponent,
   ],
   templateUrl: './employee-form.html',
   styles: ``,
@@ -66,15 +66,14 @@ export class EmployeeFormComponent implements OnInit {
   private readonly formBuilder = inject(FormBuilder);
 
   pageFormFroup = this.formBuilder.nonNullable.group({
-    joiningDate: ['', Validators.required],
+    // joiningDate: [''],
     email: ['', Validators.required],
     department: ['', Validators.required],
     designation: ['', Validators.required],
-    reportingManager: ['', Validators.required],
     employmentType: ['', Validators.required],
-    workLocation: ['', Validators.required],
     role: ['', Validators.required],
     status: ['', Validators.required],
+    salary: ['', Validators.required],
   });
 
   isFormSubmitted = signal(false);
@@ -95,6 +94,7 @@ export class EmployeeFormComponent implements OnInit {
     workLocation: 'Work Location',
     role: 'Role',
     status: 'Status',
+    salary: 'Salary',
   };
 
   employmentTypeList = [
@@ -104,8 +104,8 @@ export class EmployeeFormComponent implements OnInit {
   ];
 
   statusList = [
-    { label: 'Active', value: 'active' },
-    { label: 'Inactive', value: 'inactive' },
+    { label: 'Active', value: 'Active' },
+    { label: 'Inactive', value: 'Inactive' },
   ];
 
   ngOnInit(): void {
@@ -182,36 +182,6 @@ export class EmployeeFormComponent implements OnInit {
     });
   }
 
-  isInvalid(fornControlName: string): boolean {
-    const control = this.pageFormFroup.get(fornControlName);
-
-    return !!(control?.invalid && (control.touched || this.isFormSubmitted()));
-  }
-
-  private getFieldLabel(formControlName: string): string {
-    return this.fieldlabels[formControlName] ?? formControlName;
-  }
-
-  getErrorMessage(formControlName: string): string {
-    const control = this.pageFormFroup.get(formControlName);
-
-    if (!control?.errors) {
-      return '';
-    }
-
-    const fieldName = this.getFieldLabel(formControlName);
-
-    if (control.errors['required']) {
-      return `${fieldName} is required`;
-    }
-
-    if (control.errors['email']) {
-      return 'Please enter a valid email';
-    }
-
-    return '';
-  }
-
   getEmployeeDetails() {
     this.employeeService.getEmployeeDetailsService(this.employeeId.toUpperCase()).subscribe({
       next: (res: EmployeeResponse) => {
@@ -251,6 +221,10 @@ export class EmployeeFormComponent implements OnInit {
   }
 
   onFormSubmit() {
+    const payloads = this.pageFormFroup.getRawValue();
+
+    console.log(payloads);
+    
     this.isFormSubmitted.set(true);
     if (this.pageFormFroup.invalid) {
       return;

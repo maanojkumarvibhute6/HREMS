@@ -1,20 +1,23 @@
 import { Component, inject } from '@angular/core';
+import { CommonModule } from '@angular/common';
+
 import { MenuItem } from 'primeng/api';
 import { MenuModule } from 'primeng/menu';
+
 import { URL_ROUTES } from '../../../core/constants/url.constant';
 import { TokenStorageService } from '../../../core/services/token-storage-service';
 
 @Component({
   selector: 'app-sidebar',
   imports: [
-    MenuModule
-  ],
+    CommonModule,
+    MenuModule,
+],
   templateUrl: './sidebar.html',
   styles: ``,
 })
 export class SidebarComponent {
   private readonly tokenStorageService = inject(TokenStorageService);
-
 
   items: MenuItem[] = [
     {
@@ -76,9 +79,8 @@ export class SidebarComponent {
       label: 'Attendance',
       items: [
         {
-          label: 'Dashboard',
+          label: 'Attendance',
           icon: 'pi pi-home',
-          routerLink: URL_ROUTES.HOME.DASHBOARD
         },
       ],
     },
@@ -103,9 +105,8 @@ export class SidebarComponent {
       label: 'Payroll',
       items: [
         {
-          label: 'Dashboard',
+          label: 'Payroll',
           icon: 'pi pi-home',
-          routerLink: URL_ROUTES.HOME.DASHBOARD
         },
       ],
     },

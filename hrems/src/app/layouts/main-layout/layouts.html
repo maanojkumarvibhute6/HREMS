@@ -1,9 +1,9 @@
-<div class="layout-wrapper">
+<div class="layout-wrapper" [ngClass]="toggleSideMenu ? 'hide-sidemenu' : 'show-sidemenu'">
     <app-topbar></app-topbar>
 
     <app-sidebar></app-sidebar>
 
-    <div class="layout-main-container">
+    <div class="layout-main-container" [ngClass]="toggleSideMenu ? 'hide' : 'show'">
       <div class="layout-main">
         <router-outlet />
       </div>

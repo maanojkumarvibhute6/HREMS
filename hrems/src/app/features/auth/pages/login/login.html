@@ -3,29 +3,26 @@
     <div class="users-logo">
       <i class="pi pi-users"></i>
     </div>
-    <h1 class="auth-title">EMS Login</h1>
+    <h1 class="auth-title">Login</h1>
     <h1 class="auth-subtitle">A Complete HR Employee Management System</h1>
   </div>
   <div class="auth-body">
     <app-input-field
-      [enableIcon]="true"
-      [inputTextField]="true"
-      [controlName]="loginFormGroup.controls.email"
-      [formcontrolName]="'email'"
-      inputIcon="pi pi-user"
-      inputType="email"
-      labelName="Email"
+      [type]="'text'"
+      [showIcon]="true"
+      [formGroup]="loginFormGroup"
+      [controlName]="'email'"
+      [iconName]="'pi-user'"
+      [labelName]="'Email'"
       [fieldlabels]="fieldlabels"
     ></app-input-field>
 
     <app-input-field
-      [enableIcon]="true"
-      [inputTextField]="true"
-      [controlName]="loginFormGroup.controls.password"
-      [formcontrolName]="'password'"
-      inputIcon="pi pi-eye"
-      inputType="password"
-      labelName="Password"
+      [type]="'password'"
+      [showIcon]="true"
+      [formGroup]="loginFormGroup"
+      [controlName]="'password'"
+      [labelName]="'Password'"
       [fieldlabels]="fieldlabels"
     ></app-input-field>
 
