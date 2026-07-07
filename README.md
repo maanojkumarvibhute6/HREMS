@@ -51,7 +51,7 @@ Coming Soon...
 
 ## Features
 ### Authentication
- Login
+- Login
 - Forgot Password
 
 ### Dashboard
@@ -86,9 +86,4 @@ Coming Soon...
 - Settings
 
 ## Screenshots
-- Login
-- Dashboard
-- Employees
-- Departments
-- Designations
-- Attendance
+Coming soon..,
