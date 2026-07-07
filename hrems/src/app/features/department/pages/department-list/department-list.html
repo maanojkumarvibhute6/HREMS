@@ -1,6 +1,20 @@
 <div class="layout-departments">
   <p-card>
-    <ng-template #title>Department List</ng-template>
+    <ng-template #title>
+      <div class="d-flex">
+        <i class="pi pi-users"></i>
+        <div class="page-info">
+          <h3 class="page-title">Department List</h3>
+          <span class="page-subtitle">List of departments of your organization.</span>
+        </div>
+      </div>
+      <div class="d-flex align-items-center">
+        <a (click)="redirectTo()" pButton class="ml-3">
+          <span class="pi pi-user-plus"></span>
+          <span pButtonLabel>Add Department</span>
+        </a>
+      </div>
+    </ng-template>
 
     <p-table
       #dt1
@@ -44,10 +58,7 @@
                 placeholder="Search keyword"
               />
             </p-iconfield>
-            <a (click)="redirectTo()" pButton class="ml-3">
-              <i class="pi pi-plus"></i>
-              <span pButtonLabel>Add Department</span>
-            </a>
+            
           </div>
         </div>
       </ng-template>
@@ -81,10 +92,10 @@
       </ng-template>
       <ng-template #body let-departmentDetails>
         <tr>
-          <td>{{ departmentDetails.departmentCode }}</td>
-          <td>{{ departmentDetails.departmentName | titlecase }}</td>
+          <td>{{ departmentDetails.departmentId }}</td>
+          <td>{{ departmentDetails.label | titlecase }}</td>
           <td>{{ departmentDetails.departmentHead | titlecase }}</td>
-          <td>{{ departmentDetails.employees ?? '0'}}</td>
+          <td>{{ departmentDetails.employees ?? '0' }}</td>
           <td class="text-center">
             <p-tag
               [value]="departmentDetails.status"
@@ -105,7 +116,11 @@
             </button>
             <p-menu class="text-start" #menu [model]="items" [popup]="true">
               <ng-template #item let-item>
-                <a (click)="openMenu(item.label, departmentDetails)" pRipple class="p-menu-item-link">
+                <a
+                  (click)="openMenu(item.label, departmentDetails)"
+                  pRipple
+                  class="p-menu-item-link"
+                >
                   <span class="p-menu-item-icon" [ngClass]="item.icon"></span>
                   <span class="p-menu-item-label">{{ item.label }}</span>
                 </a>
@@ -120,7 +135,6 @@
         </tr>
       </ng-template>
     </p-table>
-    
   </p-card>
 </div>
 

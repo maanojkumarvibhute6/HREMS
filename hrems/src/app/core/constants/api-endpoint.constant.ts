@@ -20,6 +20,7 @@ export const API_ENDPOINT = {
   ROLE: {
     CREATE: `${API_BASE_URL}/role/create`,
     GET_ALL: `${API_BASE_URL}/role/allRole`,
+    GET_DETAILS: `${API_BASE_URL}/role`,
     UPDATE: `${API_BASE_URL}/role/updateRole`,
     INACTIVATE: `${API_BASE_URL}/role/deleteRole`,
   },
@@ -27,7 +28,7 @@ export const API_ENDPOINT = {
   DEPARTMENT: {
     CREATE: `${API_BASE_URL}/department/create`,
     GET_ALL: `${API_BASE_URL}/department/allDepartment`,
-    GET_DETAILS: `${API_BASE_URL}/department/allDepartment`,
+    GET_DETAILS: `${API_BASE_URL}/department`,
     UPDATE: `${API_BASE_URL}/department/updateDepartment`,
     INACTIVATE: `${API_BASE_URL}/department/deleteDepartment`,
   },
@@ -35,7 +36,7 @@ export const API_ENDPOINT = {
   DESIGNATION: {
     CREATE: `${API_BASE_URL}/designation/create`,
     GET_ALL: `${API_BASE_URL}/designation/allDesignation`,
-    GET_DETAILS: `${API_BASE_URL}/designation/allDesignation`,
+    GET_DETAILS: `${API_BASE_URL}/designation`,
     UPDATE: `${API_BASE_URL}/designation/updateDesignation`,
     INACTIVATE: `${API_BASE_URL}/designation/deleteDesignation`,
   },

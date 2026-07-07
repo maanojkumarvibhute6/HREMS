@@ -1,25 +1,25 @@
-<div class="layout-designations">
+<div class="layout-roles">
   <p-card>
     <ng-template #title>
       <div class="d-flex">
         <i class="pi pi-users"></i>
         <div class="page-info">
-          <h3 class="page-title">Designation List</h3>
-          <span class="page-subtitle">List of designations of your organization.</span>
+          <h3 class="page-title">Role List</h3>
+          <span class="page-subtitle">List of roles of your organization.</span>
         </div>
       </div>
       <div class="d-flex align-items-center">
         <a (click)="redirectTo()" pButton class="ml-3">
           <span class="pi pi-user-plus"></span>
-          <span pButtonLabel>Add Designation</span>
+          <span pButtonLabel>Add Role</span>
         </a>
       </div>
     </ng-template>
 
     <p-table
       #dt1
-      [value]="designationsList"
-      [dataKey]="'designationId'"
+      [value]="rolesList"
+      [dataKey]="'roleId'"
       [rows]="10"
       [rowsPerPageOptions]="[10, 25, 50, 100]"
       [paginator]="true"
@@ -58,7 +58,6 @@
                 placeholder="Search keyword"
               />
             </p-iconfield>
-            
           </div>
         </div>
       </ng-template>
@@ -66,18 +65,18 @@
         <tr>
           <th style="min-width: 10rem">
             <div class="table-filter-setup">
-              Designation ID
+              Role ID
               <p-columnFilter type="text" field="employeeId" display="menu" />
             </div>
           </th>
           <th style="min-width: 15rem">
             <div class="table-filter-setup">
-              Designation Name
+              Role Name
               <p-columnFilter type="text" field="name" display="menu" />
             </div>
           </th>
           <th style="min-width: 15rem">
-            <div class="table-filter-setup">Designation Head</div>
+            <div class="table-filter-setup">Role Head</div>
           </th>
           <th style="min-width: 15rem">
             <div class="table-filter-setup">Employees</div>
@@ -90,16 +89,16 @@
           </th>
         </tr>
       </ng-template>
-      <ng-template #body let-designationDetails>
+      <ng-template #body let-roleDetails>
         <tr>
-          <td>{{ designationDetails.designationId }}</td>
-          <td>{{ designationDetails.label | titlecase }}</td>
-          <td>{{ designationDetails.designationHead }}</td>
-          <td>{{ designationDetails.employees ?? '0'}}</td>
+          <td>{{ roleDetails.roleId }}</td>
+          <td>{{ roleDetails.label | titlecase }}</td>
+          <td>{{ roleDetails.roleHead | titlecase }}</td>
+          <td>{{ roleDetails.employees ?? '0'}}</td>
           <td class="text-center">
             <p-tag
-              [value]="designationDetails.status"
-              [severity]="getSeverity(designationDetails.isActive)"
+              [value]="roleDetails.status"
+              [severity]="getSeverity(roleDetails.isActive)"
             />
           </td>
           <td class="text-center">
@@ -116,7 +115,7 @@
             </button>
             <p-menu class="text-start" #menu [model]="items" [popup]="true">
               <ng-template #item let-item>
-                <a (click)="openMenu(item.label, designationDetails)" pRipple class="p-menu-item-link">
+                <a (click)="openMenu(item.label, roleDetails)" pRipple class="p-menu-item-link">
                   <span class="p-menu-item-icon" [ngClass]="item.icon"></span>
                   <span class="p-menu-item-label">{{ item.label }}</span>
                 </a>
@@ -127,7 +126,7 @@
       </ng-template>
       <ng-template #emptymessage>
         <tr>
-          <td colspan="9">No Designation found.</td>
+          <td colspan="9">No role found.</td>
         </tr>
       </ng-template>
     </p-table>

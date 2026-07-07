@@ -17,7 +17,7 @@ import { ButtonModule } from 'primeng/button';
 import { SelectModule } from 'primeng/select';
 import { InputNumberModule } from 'primeng/inputnumber';
 import { CommonService } from '../../../../core/services/common-service';
-import { DepartmentService } from '../../services/department';
+import { DepartmentService } from '../../services/department-service';
 
 @Component({
   selector: 'app-department-form',

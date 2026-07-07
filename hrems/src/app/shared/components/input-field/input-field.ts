@@ -13,6 +13,7 @@ import { RadioButtonModule } from 'primeng/radiobutton';
 import { DatePickerModule } from 'primeng/datepicker';
 import { FluidModule } from 'primeng/fluid';
 import { SelectModule } from 'primeng/select';
+import { InputNumberModule } from 'primeng/inputnumber';
 
 export interface Option {
     label: string;
@@ -35,6 +36,7 @@ export interface Option {
     DatePickerModule,
     FluidModule,
     SelectModule,
+    InputNumberModule
   ],
   templateUrl: './input-field.html',
   styles: ``,
@@ -42,7 +44,7 @@ export interface Option {
 export class InputFieldComponent {
   private controlContainer = inject(ControlContainer);
 
-  @Input() type!: 'text' | 'password' | 'email' | 'textarea' | 'select' | 'radio' | 'date';
+  @Input() type!: 'text' | 'password' | 'email' | 'textarea' | 'select' | 'radio' | 'date' | 'number';
   @Input() showIcon: boolean = false;
   @Input() showSelectFilter: boolean = false;
 
@@ -113,6 +115,10 @@ export class InputFieldComponent {
     if (control.errors['minlength']) {
       return 'Password must be minimun length of 5 characters';
     }
+
+    // if (control.errors['maxLength']) {
+    //   return 'Password must be minimun length of 5 characters';
+    // }
 
     return '';
   }

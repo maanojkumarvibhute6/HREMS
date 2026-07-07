@@ -1,0 +1,20 @@
+<div class="layout-roles">
+  <p-card>
+    <ng-template #title>
+      <div class="d-flex">
+        <i class="pi pi-user"></i>
+        <div class="page-info">
+          <h3 class="page-title">Add Role</h3>
+          <span class="page-subtitle">Create a new role for your organization.</span>
+        </div>
+      </div>      
+    </ng-template>
+
+    <app-roles-form
+      [formType]="'add'"
+    ></app-roles-form>
+
+  </p-card>
+</div>
+
+<p-toast />

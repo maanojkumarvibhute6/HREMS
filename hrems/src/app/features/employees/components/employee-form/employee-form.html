@@ -13,20 +13,118 @@
           </div>
           <div class="col-sm-12 col-md-7">
             <div class="row">
-              <div class="col-sm-12">
-                
+              <div class="col-sm-12 col-md-6">
+                <app-input-field
+                  [type]="'text'"
+                  [formGroup]="pageFormFroup"
+                  [controlName]="'firstName'"
+                  [labelName]="'First Name'"
+                  [fieldlabels]="fieldlabels"
+                ></app-input-field>
               </div>
               <div class="col-sm-12 col-md-6">
-                
+                <app-input-field
+                  [type]="'text'"
+                  [formGroup]="pageFormFroup"
+                  [controlName]="'lastName'"
+                  [labelName]="'Last Name'"
+                  [fieldlabels]="fieldlabels"
+                ></app-input-field>
               </div>
               <div class="col-sm-12 col-md-6">
-                
+                <app-input-field
+                  [type]="'email'"
+                  [formGroup]="pageFormFroup"
+                  [controlName]="'email'"
+                  [labelName]="'Email'"
+                  [fieldlabels]="fieldlabels"
+                ></app-input-field>
               </div>
+              <div class="col-sm-12 col-md-6">
+                <app-input-field
+                  [type]="'password'"
+                  [showIcon]="true"
+                  [formGroup]="pageFormFroup"
+                  [controlName]="'password'"
+                  [labelName]="'Password'"
+                  [fieldlabels]="fieldlabels"
+                ></app-input-field>
+              </div>
+              <div class="col-sm-12 col-md-6">
+                <app-input-field
+                  [type]="'text'"
+                  [showIcon]="false"
+                  [formGroup]="pageFormFroup"
+                  [controlName]="'phone'"
+                  [labelName]="'Phone'"
+                  [fieldlabels]="fieldlabels"
+                ></app-input-field>
+              </div>
+              <div class="col-sm-12 col-md-6">
+                <app-input-field
+                  [type]="'text'"
+                  [showIcon]="false"
+                  [formGroup]="pageFormFroup"
+                  [controlName]="'role'"
+                  [labelName]="'Role'"
+                  [fieldlabels]="fieldlabels"
+                ></app-input-field>
+              </div>
+              <div class="col-sm-12 col-md-6">
+                <app-input-field
+                  [type]="'text'"
+                  [showIcon]="false"
+                  [formGroup]="pageFormFroup"
+                  [controlName]="'department'"
+                  [labelName]="'Department'"
+                  [fieldlabels]="fieldlabels"
+                ></app-input-field>
+              </div>
+              <div class="col-sm-12 col-md-6">
+                <app-input-field
+                  [type]="'text'"
+                  [showIcon]="false"
+                  [formGroup]="pageFormFroup"
+                  [controlName]="'designation'"
+                  [labelName]="'Designation'"
+                  [fieldlabels]="fieldlabels"
+                ></app-input-field>
+              </div>
+              <div class="col-sm-12 col-md-6">
+                <app-input-field
+                  [type]="'text'"
+                  [showIcon]="false"
+                  [formGroup]="pageFormFroup"
+                  [controlName]="'employmentType'"
+                  [labelName]="'Employment Type'"
+                  [fieldlabels]="fieldlabels"
+                ></app-input-field>
+              </div>
+              <div class="col-sm-12 col-md-6">
+                <app-input-field
+                  [type]="'text'"
+                  [showIcon]="false"
+                  [formGroup]="pageFormFroup"
+                  [controlName]="'status'"
+                  [labelName]="'Status'"
+                  [fieldlabels]="fieldlabels"
+                ></app-input-field>
+              </div>
+              <div class="col-sm-12 col-md-6">
+                <app-input-field
+                  [type]="'text'"
+                  [showIcon]="false"
+                  [formGroup]="pageFormFroup"
+                  [controlName]="'salary'"
+                  [labelName]="'Salary'"
+                  [fieldlabels]="fieldlabels"
+                ></app-input-field>
+              </div>
+              
             </div>
           </div>
         </div>
       </ng-template>
-
     </p-card>
 
     <div class="text-center">
@@ -34,7 +132,5 @@
         <span pButtonLabel>Submit</span>
       </button>
     </div>
-
   </div>
-
 </form>

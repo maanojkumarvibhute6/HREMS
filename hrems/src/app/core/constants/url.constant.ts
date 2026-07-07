@@ -26,4 +26,10 @@ export const URL_ROUTES = {
     ADD: 'designation/add',
     EDIT: 'designation/edit',
   },
+
+  ROLE: {
+    ALL: 'roles',
+    ADD: 'role/add',
+    EDIT: 'role/edit',
+  },
 };

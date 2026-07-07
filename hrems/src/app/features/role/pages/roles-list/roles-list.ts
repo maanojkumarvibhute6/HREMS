@@ -19,10 +19,10 @@ import { Table, TableModule } from 'primeng/table';
 import { TagModule } from 'primeng/tag';
 
 import { URL_ROUTES } from '../../../../core/constants/url.constant';
-import { DesignationService } from '../../services/designation-service';
+import { RoleService } from '../../services/role-service';
 
 @Component({
-  selector: 'app-designation-list',
+  selector: 'app-roles-list',
   imports: [
     CommonModule,
     CardModule,
@@ -40,16 +40,16 @@ import { DesignationService } from '../../services/designation-service';
     MenuModule,
     ConfirmDialogModule,
   ],
-  templateUrl: './designation-list.html',
+  templateUrl: './roles-list.html',
   styles: ``,
 })
-export class DesignationListComponent {
+export class RolesListComponent {
   private readonly messageService = inject(MessageService);
-  private readonly designationService = inject(DesignationService);
+  private readonly roleService = inject(RoleService);
   private readonly router = inject(Router);
 
   searchValue = signal('');
-  designationsList: any[] = [];
+  rolesList: any[] = [];
   globalFilterFields = ['name'];
   items: MenuItem[] = [
     {
@@ -63,13 +63,13 @@ export class DesignationListComponent {
   ];
 
   ngOnInit(): void {
-    this.getAllDesignation();
+    this.getAllRoles();
   }
 
-  getAllDesignation() {
-    this.designationService.getAllDesignationsService().subscribe({
+  getAllRoles() {
+    this.roleService.getAllRolesService().subscribe({
       next: (res: any) => {
-        this.designationsList = res.data;
+        this.rolesList = res.data;
         this.messageService.add({
           severity: 'success',
           summary: 'Success',
@@ -89,7 +89,7 @@ export class DesignationListComponent {
   }
 
   onRefresh() {
-    this.getAllDesignation();
+    this.getAllRoles();
   }
 
   clear(table: Table) {
@@ -107,14 +107,15 @@ export class DesignationListComponent {
     }
   }
 
-  openMenu(actionType: string, designation: any) {
+  openMenu(actionType: string, department: any) {
     if (actionType === 'Edit') {
-      this.router.navigate([URL_ROUTES.DESIGNATION.EDIT + '/' + designation.employeeId]);
+      this.router.navigate([URL_ROUTES.DEPARTMENT.EDIT + '/' + department.employeeId]);
     } else {
     }
   }
 
   redirectTo() {
-    this.router.navigate([URL_ROUTES.DESIGNATION.ADD]);
+    this.router.navigate([URL_ROUTES.DEPARTMENT.ADD]);
   }
 }
+

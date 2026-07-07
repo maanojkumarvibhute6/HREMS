@@ -46,6 +46,11 @@ export const routes: Routes = [
         loadChildren: () =>
           import('./features/designation/designation.routes').then((m) => m.DESIGNATION_ROUTE),
       },
+      {
+        path: '',
+        loadChildren: () =>
+          import('./features/role/role.routes').then((m) => m.ROLE_ROUTE),
+      },
     ],
   },
 
