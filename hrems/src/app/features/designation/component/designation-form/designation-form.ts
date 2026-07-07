@@ -16,7 +16,7 @@ import { InputTextModule } from 'primeng/inputtext';
 import { ButtonModule } from 'primeng/button';
 import { SelectModule } from 'primeng/select';
 import { InputNumberModule } from 'primeng/inputnumber';
-import { DesignationService } from '../../services/designation';
+import { DesignationService } from '../../services/designation-service';
 import { CommonService } from '../../../../core/services/common-service';
 
 @Component({

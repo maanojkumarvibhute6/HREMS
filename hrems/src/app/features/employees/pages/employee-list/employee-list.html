@@ -63,7 +63,7 @@
       </ng-template>
       <ng-template #header>
         <tr>
-          <th style="min-width: 10rem">
+          <th style="min-width: 12rem">
             <div class="table-filter-setup">
               Employee ID
               <p-columnFilter type="text" field="employeeId" display="menu" />
@@ -75,10 +75,16 @@
               <p-columnFilter type="text" field="name" display="menu" />
             </div>
           </th>
-          <th style="min-width: 20rem">
+          <th style="min-width: 15rem">
             <div class="table-filter-setup">
               Email
               <p-columnFilter type="text" field="email" display="menu" />
+            </div>
+          </th>
+          <th style="min-width: 8rem">
+            <div class="table-filter-setup">
+              Role
+              <p-columnFilter type="text" field="department" display="menu" />
             </div>
           </th>
           <th style="min-width: 15rem">
@@ -93,7 +99,7 @@
               <p-columnFilter type="text" field="designation" display="menu" />
             </div>
           </th>
-          <th style="min-width: 15rem">
+          <th style="min-width: 10rem">
             <div class="text-center">Current Status</div>
           </th>
           <th style="min-width: 10rem">
@@ -104,8 +110,9 @@
       <ng-template #body let-employeeDetails>
         <tr>
           <td>{{ employeeDetails.employeeId }}</td>
-          <td>{{ employeeDetails.name | titlecase }}</td>
+          <td>{{ (employeeDetails.firstName | titlecase) || 'NA'}} {{ employeeDetails.lastName | titlecase }}</td>
           <td>{{ employeeDetails.email }}</td>
+          <td>{{ employeeDetails.role | titlecase }}</td>
           <td>{{ employeeDetails.department | titlecase }}</td>
           <td>{{ employeeDetails.designation | titlecase }}</td>
           <td class="text-center">

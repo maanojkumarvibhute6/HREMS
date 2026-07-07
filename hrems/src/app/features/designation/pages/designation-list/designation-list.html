@@ -1,6 +1,20 @@
 <div class="layout-designations">
   <p-card>
-    <ng-template #title>Designation List</ng-template>
+    <ng-template #title>
+      <div class="d-flex">
+        <i class="pi pi-users"></i>
+        <div class="page-info">
+          <h3 class="page-title">Designation List</h3>
+          <span class="page-subtitle">List of designations of your organization.</span>
+        </div>
+      </div>
+      <div class="d-flex align-items-center">
+        <a (click)="redirectTo()" pButton class="ml-3">
+          <span class="pi pi-user-plus"></span>
+          <span pButtonLabel>Add Designation</span>
+        </a>
+      </div>
+    </ng-template>
 
     <p-table
       #dt1
@@ -44,10 +58,7 @@
                 placeholder="Search keyword"
               />
             </p-iconfield>
-            <a (click)="redirectTo()" pButton class="ml-3">
-              <i class="pi pi-plus"></i>
-              <span pButtonLabel>Add Designation</span>
-            </a>
+            
           </div>
         </div>
       </ng-template>
@@ -81,8 +92,8 @@
       </ng-template>
       <ng-template #body let-designationDetails>
         <tr>
-          <td>{{ designationDetails.designationCode }}</td>
-          <td>{{ designationDetails.designationName | titlecase }}</td>
+          <td>{{ designationDetails.designationId }}</td>
+          <td>{{ designationDetails.label | titlecase }}</td>
           <td>{{ designationDetails.designationHead }}</td>
           <td>{{ designationDetails.employees ?? '0'}}</td>
           <td class="text-center">

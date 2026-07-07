@@ -50,7 +50,7 @@ import { CardModule } from 'primeng/card';
     ButtonModule,
     SelectModule,
     CardModule,
-    // InputFieldComponent,
+    InputFieldComponent
   ],
   templateUrl: './employee-form.html',
   styles: ``,
@@ -66,15 +66,29 @@ export class EmployeeFormComponent implements OnInit {
   private readonly formBuilder = inject(FormBuilder);
 
   pageFormFroup = this.formBuilder.nonNullable.group({
-    // joiningDate: [''],
-    email: ['', Validators.required],
+    firstName: ['', Validators.required],
+    lastName: ['', Validators.required],
+    email: ['', [Validators.required, Validators.email]],
+    password: ['', Validators.required],
+    phone: ['', Validators.required],
+    role: ['', Validators.required],
     department: ['', Validators.required],
     designation: ['', Validators.required],
     employmentType: ['', Validators.required],
-    role: ['', Validators.required],
     status: ['', Validators.required],
     salary: ['', Validators.required],
   });
+  // pageFormFroup = this.formBuilder.nonNullable.group({
+  //   email: ['', [Validators.required, Validators.email]],
+  //   password: ['', [Validators.required, Validators.minLength(5)]],
+  //   phone: ['', Validators.required, Validators.maxLength(10), Validators.maxLength(10)],
+  //   role: ['', Validators.required],
+  //   department: ['', Validators.required],
+  //   designation: ['', Validators.required],
+  //   employmentType: ['', Validators.required],
+  //   status: ['', Validators.required],
+  //   salary: ['', Validators.required],
+  // });
 
   isFormSubmitted = signal(false);
   isLoading = signal(false);
@@ -85,14 +99,13 @@ export class EmployeeFormComponent implements OnInit {
   employeeDetails!: Employee;
 
   readonly fieldlabels: Record<string, string> = {
-    joiningDate: 'Joining Date',
     email: 'Email',
+    password: 'Password',
+    phone: 'Phone',
+    role: 'Role',
     department: 'Department',
     designation: 'Designation',
-    reportingManager: 'Reporting Manager',
     employmentType: 'Employment Type',
-    workLocation: 'Work Location',
-    role: 'Role',
     status: 'Status',
     salary: 'Salary',
   };
@@ -109,13 +122,13 @@ export class EmployeeFormComponent implements OnInit {
   ];
 
   ngOnInit(): void {
-    this.getAllRoles();
-    this.getAllDepartments();
-    this.getAllDesignations();
+    // this.getAllRoles();
+    // this.getAllDepartments();
+    // this.getAllDesignations();
 
-    if (this.formType === 'edit') {
-      this.getEmployeeDetails();
-    }
+    // if (this.formType === 'edit') {
+    //   this.getEmployeeDetails();
+    // }
   }
 
   getAllRoles() {
@@ -221,10 +234,6 @@ export class EmployeeFormComponent implements OnInit {
   }
 
   onFormSubmit() {
-    const payloads = this.pageFormFroup.getRawValue();
-
-    console.log(payloads);
-    
     this.isFormSubmitted.set(true);
     if (this.pageFormFroup.invalid) {
       return;
@@ -256,25 +265,25 @@ export class EmployeeFormComponent implements OnInit {
       });
     }
 
-    if (this.formType === 'edit') {
-      this.employeeService.updateEmployeeService(this.employeeId, payload).subscribe({
-        next: (res: CreateEmployeeResponse) => {
-          this.messageService.add({
-            severity: 'success',
-            summary: 'Success',
-            detail: res.status.message,
-            life: 5000,
-          });
-        },
-        error: (err) => {
-          this.messageService.add({
-            severity: 'error',
-            summary: err?.error?.status.message,
-            detail: err?.error?.errorMessage,
-            life: 5000,
-          });
-        },
-      });
-    }
+    // if (this.formType === 'edit') {
+    //   this.employeeService.updateEmployeeService(this.employeeId, payload).subscribe({
+    //     next: (res: CreateEmployeeResponse) => {
+    //       this.messageService.add({
+    //         severity: 'success',
+    //         summary: 'Success',
+    //         detail: res.status.message,
+    //         life: 5000,
+    //       });
+    //     },
+    //     error: (err) => {
+    //       this.messageService.add({
+    //         severity: 'error',
+    //         summary: err?.error?.status.message,
+    //         detail: err?.error?.errorMessage,
+    //         life: 5000,
+    //       });
+    //     },
+    //   });
+    // }
   }
 }

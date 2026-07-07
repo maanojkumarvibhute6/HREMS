@@ -18,9 +18,8 @@ import { SliderModule } from 'primeng/slider';
 import { Table, TableModule } from 'primeng/table';
 import { TagModule } from 'primeng/tag';
 
-import { DepartmentService } from '../../services/department';
+import { DepartmentService } from '../../services/department-service';
 import { URL_ROUTES } from '../../../../core/constants/url.constant';
-import DepartmentData from '../../../../../assets/json/department.json';
 
 @Component({
   selector: 'app-department-list',
@@ -62,35 +61,33 @@ export class DepartmentListComponent {
       icon: 'pi pi-trash',
     },
   ];
-  departmentData: any = DepartmentData;
 
   ngOnInit(): void {
-    this.departmentsList = this.departmentData.data;
-    // this.getAllDepartments();
+    this.getAllDepartments();
   }
 
   getAllDepartments() {
-    // this.departmentService.getAllDepartmentsService().subscribe({
-    //   next: (res: any) => {
-    //     this.departmentsList = res.data;
-    //     console.log(this.departmentsList);
+    this.departmentService.getAllDepartmentsService().subscribe({
+      next: (res: any) => {
+        this.departmentsList = res.data;
+        console.log(this.departmentsList);
         
-    //     this.messageService.add({
-    //       severity: 'success',
-    //       summary: 'Success',
-    //       detail: res.status.message,
-    //       life: 5000,
-    //     });
-    //   },
-    //   error: (err) => {
-    //     this.messageService.add({
-    //       severity: 'error',
-    //       summary: err?.error?.status.message,
-    //       detail: err?.error?.errorMessage,
-    //       life: 5000,
-    //     });
-    //   },
-    // });
+        this.messageService.add({
+          severity: 'success',
+          summary: 'Success',
+          detail: res.status.message,
+          life: 5000,
+        });
+      },
+      error: (err) => {
+        this.messageService.add({
+          severity: 'error',
+          summary: err?.error?.status.message,
+          detail: err?.error?.errorMessage,
+          life: 5000,
+        });
+      },
+    });
   }
 
   onRefresh() {

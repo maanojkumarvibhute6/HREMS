@@ -1,0 +1,66 @@
+.layout-roles {
+
+    // Card title
+    .p-card {
+        .p-card-body {
+            .p-card-title {
+                display: inline-flex;
+                justify-content: space-between;
+                border-bottom: 1px solid #ccc;
+                padding-bottom: 1rem;
+
+                i {
+                    font-size: 2rem;
+                    border: 1px solid #ccc;
+                    border-radius: 15px;
+                    padding: 1rem;
+                }
+
+                .page-info {
+                    margin-left: 1rem;
+                }
+            }
+        }
+    }
+
+    // List View
+    .table-filter-setup {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+    }
+
+    .layout-input-field {
+        margin: 1rem 0px 0.5rem 0;
+    }
+
+    .p-datatable {
+        border: 1px solid #ccc;
+
+        .p-datatable-header .custom-header {
+            display: flex;
+            justify-content: space-between;
+
+            .custom-search {
+                display: flex;
+                justify-content: end;
+            }
+        }
+
+        .p-datatable-table-container {
+            height: calc(100vh - 38vh);
+
+        }
+
+    }
+
+    .p-menu {
+        &.p-menu-overlay {
+            inset-inline-start: auto !important;
+            top: auto !important;
+            right: 7rem;
+            margin-top: -4rem !important;
+            min-width: 7rem !important;
+        }
+    }
+}

@@ -1,7 +1,7 @@
 <div class="layout-dashboard">
   <div class="dashboard-welcome-card">
     <p-card>
-      <ng-template #title>Hello, {{ currentUserName }}</ng-template>
+      <ng-template #title>Hello, {{ currentUserName || 'User' }}</ng-template>
       <div class="card-media-object"></div>
       <ng-template #footer>
         <span>Today is {{ currentDate | date: 'fullDate' }}</span>

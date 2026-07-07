@@ -76,6 +76,21 @@ export class SidebarComponent {
       ],
     },
     {
+      label: 'Roles',
+      items: [
+        {
+          label: 'Role list',
+          icon: 'pi pi-list',
+          routerLink: URL_ROUTES.ROLE.ALL,
+        },
+        {
+          label: 'Add Role',
+          icon: 'pi pi-user-plus',
+          routerLink: URL_ROUTES.ROLE.ADD,
+        }
+      ],
+    },
+    {
       label: 'Attendance',
       items: [
         {

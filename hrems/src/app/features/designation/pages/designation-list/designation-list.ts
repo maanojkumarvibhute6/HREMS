@@ -19,9 +19,7 @@ import { Table, TableModule } from 'primeng/table';
 import { TagModule } from 'primeng/tag';
 
 import { URL_ROUTES } from '../../../../core/constants/url.constant';
-import { DesignationService } from '../../services/designation';
-import DesignationData from '../../../../../assets/json/designation.json';
-
+import { DesignationService } from '../../services/designation-service';
 
 @Component({
   selector: 'app-designation-list',
@@ -63,33 +61,31 @@ export class DesignationListComponent {
       icon: 'pi pi-trash',
     },
   ];
-  designationData: any = DesignationData;
 
   ngOnInit(): void {
-    this.designationsList = this.designationData.data;
-    // this.getAllDesignation();
+    this.getAllDesignation();
   }
 
   getAllDesignation() {
-    // this.employeeService.getAllService().subscribe({
-    //   next: (res: EmployeeListResponse) => {
-    //     this.employeesList = res.data;
-    //     this.messageService.add({
-    //       severity: 'success',
-    //       summary: 'Success',
-    //       detail: res.status.message,
-    //       life: 5000,
-    //     });
-    //   },
-    //   error: (err) => {
-    //     this.messageService.add({
-    //       severity: 'error',
-    //       summary: err?.error?.status.message,
-    //       detail: err?.error?.errorMessage,
-    //       life: 5000,
-    //     });
-    //   },
-    // });
+    this.designationService.getAllDesignationsService().subscribe({
+      next: (res: any) => {
+        this.designationsList = res.data;
+        this.messageService.add({
+          severity: 'success',
+          summary: 'Success',
+          detail: res.status.message,
+          life: 5000,
+        });
+      },
+      error: (err) => {
+        this.messageService.add({
+          severity: 'error',
+          summary: err?.error?.status.message,
+          detail: err?.error?.errorMessage,
+          life: 5000,
+        });
+      },
+    });
   }
 
   onRefresh() {

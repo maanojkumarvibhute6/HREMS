@@ -49,7 +49,7 @@
         <p-iconfield>
           @if (showIcon) {
             <p-inputicon>
-              <i 
+              <i
                 (click)="togglePassword()"
                 class="password pi"
                 [ngClass]="passwordHidden ? 'pi-eye' : 'pi-eye-slash'"
@@ -139,6 +139,22 @@
           </div>
         }
       </div>
+    }
+    @case ('number') {
+      <p-floatlabel variant="on">
+        <p-inputnumber
+          fluid
+          pSize="large"
+          inputId="on_label"
+          mode="decimal"
+          [useGrouping]="false"
+          [id]="controlName"
+          [formControl]="control"
+          [invalid]="isInvalid(controlName)"
+          autocomplete="off"
+        />
+        <label [for]="controlName">{{ labelName }}</label>
+      </p-floatlabel>
     }
   }
 
